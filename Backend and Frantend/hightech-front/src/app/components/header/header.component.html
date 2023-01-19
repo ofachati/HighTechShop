@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>star</mat-icon>
+    </button>
+    <span>HighTech Shop</span>
+
+    <span class="example-spacer"></span>
+
+  <button  mat-button  [matMenuTriggerFor]="menuOrdinateur"  #menuTrigger2="matMenuTrigger" (mouseover)="openMyMenu(menuTrigger2)" > <mat-icon>laptop</mat-icon> Ordinateurs</button>
+  <button mat-button  [matMenuTriggerFor]="menutelephonies"> <mat-icon>stay_current_portrait</mat-icon>Téléphonies</button>
+  <button mat-button  [matMenuTriggerFor]="menuStockage"> <mat-icon>save</mat-icon> Stockage</button>
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button matTooltip="Panier"  >
+      <mat-icon matBadge="2" matBadgeColor="warn">add_shopping_cart</mat-icon>
+    </button>
+    <nav>
+     
+        <button  mat-icon-button  matTooltip="Admin login" routerLink="/login"  >
+            <mat-icon >perm_identity</mat-icon>
+          </button>
+    </nav>
+    
+  </mat-toolbar>
+
+  
+
+
+
+
+
+<mat-menu #menutelephonies="matMenu">
+    <button mat-menu-item>
+      <mat-icon>smartphone</mat-icon>
+      <span>Smart Phone</span>
+    </button>
+    <button mat-menu-item >
+      <mat-icon>phone</mat-icon>
+      <span>Tel fixe</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>watch</mat-icon>
+      <span>Accesoires</span>
+    </button>
+  </mat-menu>
+
+  <mat-menu #menuOrdinateur="matMenu">
+    <button mat-menu-item>
+      <mat-icon>laptop</mat-icon>
+      <span>PC Portable</span>
+    </button>
+    <button mat-menu-item >
+      <mat-icon>tv</mat-icon>
+      <span>PC Bureau</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>keyboard</mat-icon>
+      <span>Accesoires</span>
+    </button>
+  </mat-menu>
+
+
+  <mat-menu #menuStockage="matMenu">
+    <button mat-menu-item>
+      <mat-icon>sd_storage</mat-icon>
+      <span>Disque dur</span>
+    </button>
+    <button mat-menu-item >
+      <mat-icon>usb</mat-icon>
+      <span>clé USB</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>storage</mat-icon>
+      <span>Accesoires</span>
+    </button>
+  </mat-menu>
