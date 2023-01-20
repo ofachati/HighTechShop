@@ -1,1 +1,3 @@
-<p>panier-liste works!</p>
+
+<app-panier-carte [Panier_unit]="product" *ngFor="let product of panierProducts"></app-panier-carte>
+<button  mat-raised-button  color="primary" (click)="valider_commande()" > <mat-icon>done</mat-icon> Valider la commande</button>

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Panier } from '../models/Panier';
 import { Produit } from '../models/Produit';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PanierService {
+  panierProductsChanged = new Subject<Panier[]>();
   constructor() { }
 
 
@@ -17,6 +19,8 @@ export class PanierService {
       PanierProducts = [];
       PanierProducts.push({nom:product.libelle,quantite:1,prix:product.prix});
       localStorage.setItem('PanierProducts', JSON.stringify(PanierProducts));
+      //
+      this.panierProductsChanged.next(PanierProducts);
     } 
     //if PanierProducts exist in local storage
     else {
@@ -28,6 +32,8 @@ export class PanierService {
         existingProduct.quantite++;
       }
       localStorage.setItem('PanierProducts', JSON.stringify(PanierProducts));
+      //
+      this.panierProductsChanged.next(PanierProducts);
     }
   }
 
@@ -47,12 +53,16 @@ export class PanierService {
           existingProduct.quantite--;
         }
         localStorage.setItem('PanierProducts', JSON.stringify(PanierProducts));
+        //
+        this.panierProductsChanged.next(PanierProducts);
       }
     }
   }
 
   empty_panier() {
     localStorage.removeItem("PanierProducts");
+    //
+    this.panierProductsChanged.next([]);
   }
 
   get_panier(): Panier[] {
