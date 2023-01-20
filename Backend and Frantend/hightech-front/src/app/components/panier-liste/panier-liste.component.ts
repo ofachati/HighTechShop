@@ -12,7 +12,7 @@ export class PanierListeComponent implements OnInit,OnDestroy {
   panierProducts !: Panier[];
   private subscription!: Subscription;
 
-  constructor(private panierService: PanierService) { }
+  constructor(protected panierService: PanierService) { }
   
   ngOnInit(): void {
 
