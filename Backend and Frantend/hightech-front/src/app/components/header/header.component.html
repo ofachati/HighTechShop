@@ -12,7 +12,7 @@
 
     <span class="example-spacer"></span>
     <button mat-icon-button matTooltip="Panier" routerLink="/panier"  >
-      <mat-icon matBadge="2" matBadgeColor="warn">add_shopping_cart</mat-icon>
+      <mat-icon [matBadge]="panierService.quantite_total_panier()" [matBadgeHidden]="panierService.quantite_total_panier() < 1" matBadgeColor="warn">add_shopping_cart</mat-icon>
     </button>
     <nav>
      

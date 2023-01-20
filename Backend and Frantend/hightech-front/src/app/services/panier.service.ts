@@ -8,7 +8,7 @@ import { Produit } from '../models/Produit';
 export class PanierService {
   constructor() { }
 
-  
+
   insert_panier(product: Produit) {
     let PanierProducts: Panier[]
     let unparsedPanier= localStorage.getItem('PanierProducts');
@@ -75,6 +75,19 @@ export class PanierService {
     if(unparsedPanier !== null) {
       PanierProducts = JSON.parse(unparsedPanier);
       return PanierProducts.reduce((acc, p) => acc + (p.prix * p.quantite), 0);
+    }
+    else {
+      return 0;
+    }
+  }
+
+
+  quantite_total_panier(): number {
+    let PanierProducts: Panier[]
+    let unparsedPanier= localStorage.getItem('PanierProducts');
+    if(unparsedPanier !== null) {
+      PanierProducts = JSON.parse(unparsedPanier);
+      return PanierProducts.reduce((acc, p) => acc +  p.quantite, 0);
     }
     else {
       return 0;

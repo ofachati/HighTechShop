@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu/menu-trigger';
+import { PanierService } from 'src/app/services/panier.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { MatMenuTrigger } from '@angular/material/menu/menu-trigger';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected panierService: PanierService) { }
 
   ngOnInit(): void {
   }
