@@ -19,7 +19,8 @@
            <mat-form-field appearance="outline" style="width: 400px;" >
              <!--<mat-icon matPreffix>lock</mat-icon>-->
              <mat-label>Mot de passe</mat-label>
-             <input  formControlName="password" matInput [type]="hide ? 'password' : 'text' "  >
+             <mat-hint>Entrer votre Mot de passe</mat-hint>
+             <input  formControlName="password" matInput placeholder="Entrer votre Mot de passe" matInput [type]="hide ? 'password' : 'text' "  >
              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
              </button>

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { PanierComponent } from './components/panier/panier.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProduitPageComponent } from './components/produit-page/produit-page.component';
 import { ProduitCarteComponent } from './components/produit-carte/produit-carte.component';
@@ -38,18 +37,21 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { PanierCarteComponent } from './components/panier-carte/panier-carte.component';
+import { PanierListeComponent } from './components/panier-liste/panier-liste.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    PanierComponent,
     LoginComponent,
     ProduitPageComponent,
     ProduitCarteComponent,
     ProduitListeComponent,
     FooterComponent,
     AccueilComponent,
+    PanierCarteComponent,
+    PanierListeComponent,
     
   ],
   imports: [

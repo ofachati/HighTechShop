@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PanierComponent } from './panier.component';
+import { PanierListeComponent } from './panier-liste.component';
 
-describe('PanierComponent', () => {
-  let component: PanierComponent;
-  let fixture: ComponentFixture<PanierComponent>;
+describe('PanierListeComponent', () => {
+  let component: PanierListeComponent;
+  let fixture: ComponentFixture<PanierListeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PanierComponent ]
+      declarations: [ PanierListeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PanierComponent);
+    fixture = TestBed.createComponent(PanierListeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
