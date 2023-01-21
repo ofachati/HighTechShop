@@ -9,6 +9,8 @@ import { Produit } from './models/Produit';
 import { PanierListeComponent } from './components/panier-liste/panier-liste.component';
 import { ProduitListeComponent } from './components/produit-liste/produit-liste.component';
 import { UrlMatcher } from '@angular/router';
+import { ProduitAddEditComponent } from './components/produit-add-edit/produit-add-edit.component';
+import { AdminAuthGuard } from './services/admin-auth.guard';
 
 /*
 //attempt to restrict id to be an integer in  "produit/:id" but it didn't work :(  
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'panier', component: PanierListeComponent },
   { path: 'produits/:categorie', component: ProduitListeComponent },
   { path: 'acceuil', component: AccueilComponent },
+  { path: 'ajouter-produit', component: ProduitAddEditComponent , canActivate: [AdminAuthGuard] },
   { path: '**', redirectTo: 'acceuil' }
 
 

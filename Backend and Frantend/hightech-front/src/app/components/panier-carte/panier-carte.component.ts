@@ -12,10 +12,10 @@ export class PanierCarteComponent implements OnInit {
   @Input() Panier_unit!: Panier;
   private subscription!: Subscription;
 
-
   constructor(protected panierService: PanierService) { }
 
   ngOnInit(): void {
+    
   }
 
 

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Produit } from 'src/app/models/Produit';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-produit-carte',
@@ -9,14 +10,22 @@ import { Router } from '@angular/router';
 })
 export class ProduitCarteComponent implements OnInit {
   @Input() produit!: Produit;
-  constructor(private router: Router) { }
+  constructor(private router: Router, protected loginService:LoginService) { }
 
   ngOnInit(): void {
   }
 
   onCardClick(product: Produit) {
-    console.log(product)
-    this.router.navigate(['/produit', product.id],{state: this.produit});
+   
+    if (!this.loginService.isLoggedin()){
+      console.log(product);
+    this.router.navigate(['/produit', product.id]);
+  }
+  
+  }
+  onEditBtnClick(product: Produit) {
+    console.log(product);
+      this.router.navigate(['ajouter-produit'], { state: { optionalProduct: product } });
 }
 
 }

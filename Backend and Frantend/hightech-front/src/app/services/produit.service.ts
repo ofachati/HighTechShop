@@ -46,10 +46,31 @@ export class ProduitService {
   getProductsByCategory(categorie: string): Produit[] {
      const liste_produits =this.produits.filter(produit => produit.categorie === categorie);
      this.ProductsChanged.next(liste_produits);
-
     return liste_produits;
 
 }
 
 
+/*
+This function first find the highest id in the "produits" list using the spread operator (...), the Array.prototype.map() method, and the Math.max() method. It then adds the new product to the "produits" list and emit an event via the Subject that you can subscribe to in other component to get the new state of the products list.
+*/
+  addProduit(libelle: string, marque: string, prix: number, categorie: string, photo: string) {
+    let newId = 1;
+    if (this.produits.length > 0) {
+        newId = Math.max(...this.produits.map(p => p.id)) + 1;
+    }
+    this.produits.push({ id: newId, libelle, marque, prix, categorie, photo });
+    this.ProductsChanged.next(this.produits);
+  }
+
+
+
+  updateProduit(id: number, libelle: string, marque: string, prix: number, categorie: string, photo: string) {
+    let index = this.produits.findIndex(p => p.id === id);
+    this.produits[index].libelle = libelle;
+    this.produits[index].marque = marque;
+    this.produits[index].prix = prix;
+    this.produits[index].categorie = categorie;
+    this.produits[index].photo = photo;
+}
 }
