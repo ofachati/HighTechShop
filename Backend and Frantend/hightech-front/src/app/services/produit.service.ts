@@ -30,8 +30,9 @@ export class ProduitService {
   }
 
   // get product by id
-  getProductById(id: number) {
-    return this.produits.find(product => product.id === id);
+  getProductById(id: number): Produit {
+    //return this.produits.find(product => product.id === id) !== undefined ? this.produits.find(product => product.id === id) as Produit:{} as Produit;
+     return this.produits.find(product => product.id === id) as Produit;
   }
  
   //

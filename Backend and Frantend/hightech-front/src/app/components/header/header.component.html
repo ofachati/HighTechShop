@@ -1,24 +1,28 @@
 <mat-toolbar color="primary">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>star</mat-icon>
+      <mat-icon>business</mat-icon>
     </button>
     <span>HighTech Shop</span>
 
     <span class="example-spacer"></span>
 
-  <button  mat-button  [matMenuTriggerFor]="menuOrdinateur"  > <mat-icon>laptop</mat-icon> Ordinateurs</button>
+  <button mat-button  [matMenuTriggerFor]="menuOrdinateur"  > <mat-icon>laptop</mat-icon> Ordinateurs</button>
   <button mat-button  [matMenuTriggerFor]="menutelephonies"> <mat-icon>stay_current_portrait</mat-icon>Téléphonies</button>
   <button mat-button  [matMenuTriggerFor]="menuStockage"> <mat-icon>save</mat-icon> Stockage</button>
 
     <span class="example-spacer"></span>
-    <button mat-icon-button matTooltip="Panier" routerLink="/panier"  >
+    <button mat-icon-button *ngIf="!loginService.isLoggedin()" matTooltip="Panier" routerLink="/panier"  >
       <mat-icon [matBadge]="panierService.quantite_total_panier()" [matBadgeHidden]="panierService.quantite_total_panier() < 1" matBadgeColor="warn">add_shopping_cart</mat-icon>
     </button>
     <nav>
      
-        <button  mat-icon-button  matTooltip="Admin login" routerLink="/login"  >
+        <button  mat-icon-button *ngIf="!loginService.isLoggedin()" matTooltip="Admin login" routerLink="/login"  >
             <mat-icon >perm_identity</mat-icon>
-          </button>
+        </button>
+        <button  mat-icon-button  *ngIf="loginService.isLoggedin()" (click)="loginService.logout()"  matTooltip="logout" routerLink="/accueil"    >
+            <mat-icon >exit_to_app</mat-icon>
+        </button>
+
     </nav>
     
   </mat-toolbar>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu/menu-trigger';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 import { PanierService } from 'src/app/services/panier.service';
 import { ProduitService } from 'src/app/services/produit.service';
 
@@ -12,7 +13,7 @@ import { ProduitService } from 'src/app/services/produit.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(protected panierService: PanierService ,protected produitService:ProduitService,private router: Router) { }
+  constructor(protected panierService: PanierService ,protected produitService:ProduitService,private router: Router,protected loginService: LoginService) { }
   ngOnInit(): void {
   }
   

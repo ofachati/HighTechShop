@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Produit } from 'src/app/models/Produit';
+import { LoginService } from 'src/app/services/login.service';
 import { ProduitService } from 'src/app/services/produit.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class ProduitListeComponent implements OnInit,OnDestroy  {
   categorie!: string ;
 
 
-    constructor(protected produitService: ProduitService,private activatedRoute: ActivatedRoute) { }
+  
+    constructor(protected produitService: ProduitService,private activatedRoute: ActivatedRoute,protected loginService: LoginService) { }
   
   
     ngOnInit(): void {

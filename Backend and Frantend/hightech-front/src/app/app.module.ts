@@ -39,6 +39,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PanierCarteComponent } from './components/panier-carte/panier-carte.component';
 import { PanierListeComponent } from './components/panier-liste/panier-liste.component';
+import { ProduitAddEditComponent } from './components/produit-add-edit/produit-add-edit.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PanierListeComponent } from './components/panier-liste/panier-liste.com
     AccueilComponent,
     PanierCarteComponent,
     PanierListeComponent,
+    ProduitAddEditComponent,
     
   ],
   imports: [
