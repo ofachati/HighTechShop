@@ -1,20 +1,57 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Produit } from 'src/app/models/Produit';
+import { ProduitService } from 'src/app/services/produit.service';
 
 @Component({
   selector: 'app-produit-liste',
   templateUrl: './produit-liste.component.html',
   styleUrls: ['./produit-liste.component.css']
 })
-export class ProduitListeComponent implements OnInit {
+export class ProduitListeComponent implements OnInit,OnDestroy  {
 
   @Input()
   produits!: Produit[];
-  /*
-  */
-    constructor() { }
+  private subscription!: Subscription;
+  private routesubscription!: Subscription;
+  categorie!: string ;
 
-  ngOnInit(): void {
+
+    constructor(protected produitService: ProduitService,private activatedRoute: ActivatedRoute) { }
+  
+  
+    ngOnInit(): void {
+      
+    this.routesubscription=this.activatedRoute.paramMap.subscribe(params => {
+      this.categorie = params.get('categorie') as string;
+      console.log(this.categorie)
+
+      this.produits = this.produitService.getProductsByCategory(this.categorie);
+      console.log(this.produits)
+
+  });
+
+
+
+
+      this.subscription = this.produitService.ProductsChanged.subscribe(
+        (products: Produit[]) => {
+          this.produits = products;
+        }
+      );
+        
+      
+    
+    
+//
   }
+
+  ngOnDestroy(): void {
+   this.subscription.unsubscribe();
+   this.routesubscription.unsubscribe();
+
+}
+
 
 }
