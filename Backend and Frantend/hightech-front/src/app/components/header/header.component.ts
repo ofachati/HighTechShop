@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu/menu-trigger';
+import { Router } from '@angular/router';
 import { PanierService } from 'src/app/services/panier.service';
+import { ProduitService } from 'src/app/services/produit.service';
 
 
 @Component({
@@ -10,8 +12,7 @@ import { PanierService } from 'src/app/services/panier.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(protected panierService: PanierService) { }
-
+  constructor(protected panierService: PanierService ,protected produitService:ProduitService,private router: Router) { }
   ngOnInit(): void {
   }
   
@@ -19,12 +20,14 @@ export class HeaderComponent implements OnInit {
     menuTrigger.openMenu();
 }
 
-
 //not working as expected so i removed it from the HTML
 closeMyMenu(menuTrigger: MatMenuTrigger) {
   menuTrigger.closeMenu();
 }
-//
 
+//
+onCategoryClick(categorie: string) {
+  this.router.navigate(['/produits', categorie]);
+}
 
 }

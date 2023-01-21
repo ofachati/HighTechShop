@@ -16,7 +16,7 @@ export class ProduitCarteComponent implements OnInit {
 
   onCardClick(product: Produit) {
     console.log(product)
-    this.router.navigate(['/products', product.id],{state: this.produit});
+    this.router.navigate(['/produit', product.id],{state: this.produit});
 }
 
 }
