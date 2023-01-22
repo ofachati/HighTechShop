@@ -1,21 +1,31 @@
-<mat-card class="example-card mat-elevation-z8" >
-    <mat-card-header>
-      <mat-card-title>{{ Panier_unit.nom }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Prix: {{ Panier_unit.prix }}</p>
-      
+<mat-card class="example-card mat-elevation-z8"  >
 
-      <button mat-mini-fab color="accent" (click)="panierService.delete_from_panier(Panier_unit.nom, Panier_unit.prix )">
-        <mat-icon>remove</mat-icon>
-      </button>
-      <p>quantité: {{ Panier_unit.quantite }}</p>
-      <button mat-mini-fab color="accent" (click)="panierService.insert_panier(Panier_unit.nom, Panier_unit.prix )">
-        <mat-icon>add</mat-icon>
-      </button>
+    <mat-card-content>
+
+      <mat-grid-list cols="3" rowHeight="75px" gutterSize="5px">
+
+        <mat-grid-tile>
+          <mat-card-title>{{ Panier_unit.nom }}</mat-card-title>
+         </mat-grid-tile>
+          
+         <mat-grid-tile>
+          <button mat-mini-fab color="accent" (click)="panierService.delete_from_panier(Panier_unit.nom, Panier_unit.prix )">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <h3>{{ Panier_unit.quantite }}</h3>
+          <button mat-mini-fab color="accent" (click)="panierService.insert_panier(Panier_unit.nom, Panier_unit.prix )">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-grid-tile>
+      
+        <mat-grid-tile>
+      
+          <h3>{{ Panier_unit.prix }}€</h3>
+          </mat-grid-tile>
+      </mat-grid-list>
 
     </mat-card-content>
-    <mat-card-actions>
-        
-    </mat-card-actions>
+
 </mat-card>
+
+
