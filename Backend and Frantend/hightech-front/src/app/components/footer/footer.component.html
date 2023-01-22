@@ -1,16 +1,21 @@
 
 <br>
 <br>
-<br>
-<br>
 
 <div class="my-component">
-    <p>footer works!</p>
-    <p>footer works!</p>
-    <p>footer works!</p>
-    <p>footer works!</p>
-    <p>footer works!</p>
-    <p>footer works!</p>
-    <p>footer works!</p>
-    <p>footer works!</p>
-  </div>
+   
+    <mat-grid-list cols="3" rowHeight="300px" gutterSize="5px">
+                <mat-grid-tile>
+                  <img mat-card-image src="assets/img/UPNLogo.png" style="width:400px;height:auto; display: block; margin-left: auto; margin-right: auto; " >
+                </mat-grid-tile>
+                <mat-divider [vertical]="true"></mat-divider>
+
+                <mat-grid-tile>this not a real shop , it's only a school project.</mat-grid-tile>
+                <mat-divider [vertical]="true"></mat-divider>
+
+
+                <mat-grid-tile>Tile 1 (no header, no footer)</mat-grid-tile>
+    </mat-grid-list>
+ 
+ 
+</div>
