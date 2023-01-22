@@ -3,6 +3,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute, Router } from '@angular/router';
 import { Produit } from 'src/app/models/Produit';
 import { ProduitService } from 'src/app/services/produit.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-produit-add-edit',
@@ -15,7 +16,7 @@ export class ProduitAddEditComponent implements OnInit {
   @Input() optionalProduct!: Produit ;
 
 
-  constructor(private router: Router,private produitService:ProduitService, private  activatedRoute :ActivatedRoute) { }
+  constructor(private router: Router,private produitService:ProduitService, private  activatedRoute :ActivatedRoute, private location: Location) { }
   
   ngOnInit(): void {
     //this.optionalProduct== this.activatedRoute.snapshot.extras.state.inputValue;
@@ -71,11 +72,14 @@ export class ProduitAddEditComponent implements OnInit {
       if(this.optionalProduct !== undefined){
 
         this.produitService.updateProduit(this.optionalProduct.id,libelle, marque, prix, categorie, photo);
-        this.router.navigate(['/'], { queryParamsHandling: 'preserve' });
+        this.location.back()
 
       }
       else{this.produitService.addProduit(libelle, marque, prix, categorie, photo);
-        this.router.navigate(['/'], { queryParamsHandling: 'preserve' });}
+        this.location.back();
+
+      
+      }
      
     } 
 

@@ -1,0 +1,8 @@
+.background-class {
+    background-image: url('/src/assets/img/AcceuilBackground.jpg') ;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+  }

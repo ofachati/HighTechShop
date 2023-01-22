@@ -42,6 +42,7 @@ import { PanierListeComponent } from './components/panier-liste/panier-liste.com
 import { ProduitAddEditComponent } from './components/produit-add-edit/produit-add-edit.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatSnackBarModule,
     MatDialogModule,
     MatSelectModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

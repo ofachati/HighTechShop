@@ -1,20 +1,24 @@
+
+
 <mat-card class="example-card mat-elevation-z8" (click)="onCardClick(produit)"  >
+    <mat-card-subtitle>{{ produit.marque }} </mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <img mat-card-image [src]="produit.photo" style="height:150px;width:auto; display: block; margin-left: auto; margin-right: auto; " >
+    <mat-divider></mat-divider>
     <mat-card-header>
-      <mat-card-title>{{ produit.libelle }}</mat-card-title>
-      <mat-card-subtitle>{{ produit.marque }}</mat-card-subtitle>
+      <mat-card-title>{{produit.libelle}} <br> </mat-card-title>
     </mat-card-header>
-    <img mat-card-image [src]="produit.photo" style="height:150px;width:auto; text-align: center;" >
     <mat-card-content>
-      <p>Prix: {{ produit.prix }} €</p>
-      <p>Catégorie: {{ produit.categorie }}</p>
+      <p style="text-align: center;">{{ produit.categorie }}</p>
+      <h5 style="text-align: end;" >{{ produit.prix }} €</h5>
     </mat-card-content>
     <mat-card-actions>
      <!--<button mat-button>Ajouter au panier</button>   --> 
-        <button mat-mini-fab color="accent" *ngIf="loginService.isLoggedin()"  (click)="onEditBtnClick(produit)">
-            <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-mini-fab color="warn" *ngIf="loginService.isLoggedin()"  (click)="onEditBtnClick(produit)">
-            <mat-icon>remove</mat-icon>
-        </button>
+     <button mat-mini-fab  *ngIf="loginService.isLoggedin()"  (click)="onEditBtnClick(produit)" matTooltip="Modifier le produit" style="background-color: rgb(213, 227, 9); ">
+        <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" *ngIf="loginService.isLoggedin()"  (click)="onDeleteBtnClick(produit)" matTooltip="Supprimer le produit" style="left: 100px;">
+        <mat-icon>clear</mat-icon>
+    </button>
     </mat-card-actions>
 </mat-card>
