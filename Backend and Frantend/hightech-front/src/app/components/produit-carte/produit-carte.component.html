@@ -13,5 +13,8 @@
         <button mat-mini-fab color="accent" *ngIf="loginService.isLoggedin()"  (click)="onEditBtnClick(produit)">
             <mat-icon>edit</mat-icon>
         </button>
+        <button mat-mini-fab color="warn" *ngIf="loginService.isLoggedin()"  (click)="onEditBtnClick(produit)">
+            <mat-icon>remove</mat-icon>
+        </button>
     </mat-card-actions>
 </mat-card>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Produit } from 'src/app/models/Produit';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { ProduitService } from 'src/app/services/produit.service';
 
 @Component({
   selector: 'app-produit-carte',
@@ -10,7 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class ProduitCarteComponent implements OnInit {
   @Input() produit!: Produit;
-  constructor(private router: Router, protected loginService:LoginService) { }
+  constructor(private router: Router, protected loginService:LoginService,private produitService:ProduitService) { }
 
   ngOnInit(): void {
   }
@@ -27,5 +28,7 @@ export class ProduitCarteComponent implements OnInit {
     console.log(product);
       this.router.navigate(['ajouter-produit'], { state: { optionalProduct: product } });
 }
-
+  onDeleteBtnClick(product: Produit) {
+    //this.produitService.
+  }
 }

@@ -67,8 +67,16 @@ export class ProduitAddEditComponent implements OnInit {
       let categorie = this.produitform.get('categorie')?.value;
       let photo = this.produitform.get('photo')?.value;
 
-  this.produitService.addProduit(libelle, marque, prix, categorie, photo);
-      this.router.navigate(['/'], { queryParamsHandling: 'preserve' });
+
+      if(this.optionalProduct !== undefined){
+
+        this.produitService.updateProduit(this.optionalProduct.id,libelle, marque, prix, categorie, photo);
+        this.router.navigate(['/'], { queryParamsHandling: 'preserve' });
+
+      }
+      else{this.produitService.addProduit(libelle, marque, prix, categorie, photo);
+        this.router.navigate(['/'], { queryParamsHandling: 'preserve' });}
+     
     } 
 
    }
