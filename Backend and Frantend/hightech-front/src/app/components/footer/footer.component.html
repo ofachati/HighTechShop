@@ -5,16 +5,29 @@
 <div class="my-component">
    
     <mat-grid-list cols="3" rowHeight="300px" gutterSize="5px">
+
                 <mat-grid-tile>
+                  <img mat-card-image src="assets/img/HighTechLogo.png" style="width:400px;height:auto; display: block; margin-left: auto; margin-right: auto; " >
+                 </mat-grid-tile>
+
+                 <mat-grid-tile>
                   <img mat-card-image src="assets/img/UPNLogo.png" style="width:400px;height:auto; display: block; margin-left: auto; margin-right: auto; " >
                 </mat-grid-tile>
-                <mat-divider [vertical]="true"></mat-divider>
 
-                <mat-grid-tile>this not a real shop , it's only a school project.</mat-grid-tile>
-                <mat-divider [vertical]="true"></mat-divider>
-
-
-                <mat-grid-tile>Tile 1 (no header, no footer)</mat-grid-tile>
+                <mat-grid-tile>
+                  <p>
+                    <b>About us:</b><br>
+                    this not a real ecommerce shop , it is a school project made by students of Paris Nanterre University.
+                    You can find the code of the project on <a href = "https://github.com/ofachati/HighTechShop">Github</a> 
+                    the project is Open-scource under Apache License 2.0 , feel free to use it ^_^ !
+                    <br><b>Contact Us:</b><br>
+                    for business inquiries you can find me on linkedin :<a href = "https://www.linkedin.com/in/fachati/">EL FACHATI Omar</a>  
+                  
+                    <br>
+                    Thank you for passing by !
+                  </p>
+                  
+                  </mat-grid-tile>
     </mat-grid-list>
  
  
