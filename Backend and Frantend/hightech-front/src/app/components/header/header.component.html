@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar  style=" background-color: rgb(91, 177, 171);">
 
     <img src="assets/img/HighTechLogo.png" alt="" style="height: 80%;"  routerLink="/accueil">
 
@@ -17,9 +17,11 @@
         <button  mat-icon-button *ngIf="!loginService.isLoggedin()" matTooltip="Admin login" routerLink="/login"  >
             <mat-icon >perm_identity</mat-icon>
         </button>
+        <button mat-button   *ngIf="loginService.isLoggedin()" style="border: 2px solid black;border-radius: 100px;"> <mat-icon >perm_identity</mat-icon>Admin</button>
         <button  mat-icon-button  *ngIf="loginService.isLoggedin()" (click)="loginService.logout()"  matTooltip="logout" routerLink="/accueil"    >
-            <mat-icon >exit_to_app</mat-icon>
+            <mat-icon style="color: rgb(205, 0, 0);" >exit_to_app</mat-icon>
         </button>
+        
 
     </nav>
     
