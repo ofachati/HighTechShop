@@ -28,7 +28,11 @@ export class ProduitAddEditComponent implements OnInit {
       prix: new FormControl('', [Validators.required,Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')]),
       categorie: new FormControl('', [Validators.required]),
       //photo: new FormControl('', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')])
-      photo: new FormControl('', [Validators.required])
+      photo: new FormControl('', [Validators.required]),
+      subCategorie: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+
+
     });
 
 
@@ -41,7 +45,9 @@ export class ProduitAddEditComponent implements OnInit {
         marque: this.optionalProduct.marque,
         prix: this.optionalProduct.prix,
         categorie: this.optionalProduct.categorie,
-        photo: this.optionalProduct.photo
+        photo: this.optionalProduct.photo,
+        subCategorie: this.optionalProduct.subCategorie,
+        description: this.optionalProduct.description
     });
   } 
     
@@ -67,15 +73,18 @@ export class ProduitAddEditComponent implements OnInit {
       let prix = this.produitform.get('prix')?.value;
       let categorie = this.produitform.get('categorie')?.value;
       let photo = this.produitform.get('photo')?.value;
+      let subCategorie=this.produitform.get('subCategorie')?.value;
+      let description=this.produitform.get('description')?.value;
+
 
 
       if(this.optionalProduct !== undefined){
 
-        this.produitService.updateProduit(this.optionalProduct.id,libelle, marque, prix, categorie, photo);
+        this.produitService.updateProduit(this.optionalProduct);
         this.location.back()
 
       }
-      else{this.produitService.addProduit(libelle, marque, prix, categorie, photo);
+      else{this.produitService.addProduit(libelle, description, marque, prix, categorie, subCategorie, photo);
         this.location.back();
 
       

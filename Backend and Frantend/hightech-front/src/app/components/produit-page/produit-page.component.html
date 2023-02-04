@@ -1,5 +1,5 @@
 
-
+<span *ngIf="product$ | async as produit">
 
 <mat-grid-list cols="2" rowHeight="700px" gutterSize="0px">
   <mat-grid-tile style="border: 3px;" >
@@ -20,9 +20,10 @@
       <mat-divider ></mat-divider>
 
       <mat-card-content>
-        <br><br><br>
-        <p>Catégorie: {{ produit.categorie }}</p>
-        <br><br><br>
+        <p>Catégorie: {{ produit.categorie }}</p><br>
+        <H6>description:</H6>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quo eius nihil fugiat ex veritatis enim deserunt et, aut alias aliquid minus? Unde harum vel dolor rerum eaque tempora assumenda!</p>
+        <br><br>
 
         <h4 style="text-align: end;">{{ produit.prix }} €</h4>
 
@@ -39,3 +40,5 @@
 
   
 </mat-grid-list>
+
+</span>

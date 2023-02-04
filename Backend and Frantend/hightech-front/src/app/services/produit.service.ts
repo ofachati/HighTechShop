@@ -1,86 +1,85 @@
 import { Injectable } from '@angular/core';
 import { Categorie } from '../models/Categorie';
 import { Produit } from '../models/Produit';
-import { Subject } from 'rxjs';
+import { catchError, Observable, of, Subject, tap } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProduitService {
   ProductsChanged = new Subject<Produit[]>();
+  private articlesUrl = '/rest/articles';  // URL to web api
 
-
-  private produits: Produit[] = [
-    { id: 1, libelle: 'MacBook Pro', marque: 'Apple', prix: 1999, categorie: 'PC Portable', photo: 'https://static.s-sfr.fr/media/catalogue/article/mobile/0eg1pgou/iPhone-14-plus_Violet_Front-Side_400x540px.png' },
-    { id: 2, libelle: 'ThinkPad T4', marque: 'Lenovo', prix: 1399, categorie: 'PC Portable', photo: 'https://static.s-sfr.fr/media/catalogue/article/mobile/0eg1pgou/iPhone-14-plus_Violet_Front-Side_400x540px.png' },
-    { id: 3, libelle: 'Galaxy S21', marque: 'Samsung', prix: 799, categorie: 'Smart Phone', photo: 'https://static.s-sfr.fr/media/catalogue/article/mobile/0eg1pgou/iPhone-14-plus_Violet_Front-Side_400x540px.png' },
-    { id: 4, libelle: 'Surface Pro 7', marque: 'Microsoft', prix: 899, categorie: 'PC Portable', photo: 'https://static.s-sfr.fr/media/catalogue/article/mobile/0eg1pgou/iPhone-14-plus_Violet_Front-Side_400x540px.png' },
-    { id: 5, libelle: 'Alienware m17', marque: 'Dell', prix: 1999, categorie: 'PC Portable', photo: 'https://static.s-sfr.fr/media/catalogue/article/mobile/0eg1pgou/iPhone-14-plus_Violet_Front-Side_400x540px.png' },
-    { id: 6, libelle: 'iPhone 12', marque: 'Apple', prix: 999, categorie: 'Smart Phone', photo: 'https://static.s-sfr.fr/media/catalogue/article/mobile/0eg1pgou/iPhone-14-plus_Violet_Front-Side_400x540px.png' },
-    { id: 7, libelle: 'ZenBook U25', marque: 'Asus', prix: 999, categorie: 'PC Portable', photo: 'https://static.s-sfr.fr/media/catalogue/article/mobile/0eg1pgou/iPhone-14-plus_Violet_Front-Side_400x540px.png' },
-    { id: 8, libelle: 'XPS 13', marque: 'Dell', prix: 1299, categorie: 'PC Portable', photo: 'https://static.s-sfr.fr/media/catalogue/article/mobile/0eg1pgou/iPhone-14-plus_Violet_Front-Side_400x540px.png' }
-  ];
-
-  constructor() { }
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   
-  // get all products
-  getAllProducts(): Produit[] {
-    return this.produits;
+  constructor(private http: HttpClient) { }
+
+  getAllProducts(): Observable<Produit[]> {
+    return this.http.get<Produit[]>(this.articlesUrl)
+      .pipe(
+        catchError(this.handleError<Produit[]>('getArticles', []))
+      );
   }
 
-  // get product by id
-  getProductById(id: number): Produit {
-    //return this.produits.find(product => product.id === id) !== undefined ? this.produits.find(product => product.id === id) as Produit:{} as Produit;
-     return this.produits.find(product => product.id === id) as Produit;
-  }
- 
-  //
-  /*
-  getProductsByCategory(categorie: string): Produit[] {
-    return this.produits.find(product => product.categorie === categorie) !== undefined ? this.produits.find(product => product.categorie === categorie) as unknown   as Produit[]  :[] as Produit[];
-    
-  }
-  */
-
-  getProductsByCategory(categorie: string): Produit[] {
-     const liste_produits =this.produits.filter(produit => produit.categorie === categorie);
-     this.ProductsChanged.next(liste_produits);
-    return liste_produits;
-
-}
-
-
-/*
-This function first find the highest id in the "produits" list using the spread operator (...), the Array.prototype.map() method, and the Math.max() method. It then adds the new product to the "produits" list and emit an event via the Subject that you can subscribe to in other component to get the new state of the products list.
-*/
-  addProduit(libelle: string, marque: string, prix: number, categorie: string, photo: string) {
-    let newId = 1;
-    if (this.produits.length > 0) {
-        newId = Math.max(...this.produits.map(p => p.id)) + 1;
+  getProductById(id: number): Observable<Produit> {
+    const url = `${this.articlesUrl}/${id}`;
+    return this.http.get<Produit>(url, this.httpOptions).pipe(
+    catchError(this.handleError<Produit>('getProductById id=${id}'))
+    );
     }
-    this.produits.push({ id: newId, libelle, marque, prix, categorie, photo });
-    this.ProductsChanged.next(this.produits);
+
+  getProductsByCategory(category: string): Observable<Produit[]> {
+      const url = `${this.articlesUrl}/category/${category}`;
+      return this.http.get<Produit[]>(url, this.httpOptions)
+        .pipe(
+          catchError(this.handleError<Produit[]>('getArticlesByCategory', []))
+        );
+    }
+
+
+    
+  getProductsBySubCategory(subCategory: string): Observable<Produit[]> {
+    const url = `${this.articlesUrl}/subcategory/${subCategory}`;
+    return this.http.get<Produit[]>(url)
+      .pipe(
+        catchError(this.handleError<Produit[]>('getArticleBySubCategory', []))
+      );
+  }
+
+  
+  addProduit(libelle: string, description: string, marque: string, prix: number, categorie: string, subCategorie: string, photo: string) {
+    return this.http.post<void>(this.articlesUrl, {libelle, description, marque, prix, categorie, subCategorie, photo});
   }
 
 
 
-  updateProduit(id: number, libelle: string, marque: string, prix: number, categorie: string, photo: string) {
-    let index = this.produits.findIndex(p => p.id === id);
-    this.produits[index].libelle = libelle;
-    this.produits[index].marque = marque;
-    this.produits[index].prix = prix;
-    this.produits[index].categorie = categorie;
-    this.produits[index].photo = photo;
-    this.ProductsChanged.next(this.produits);
+  updateProduit (article: Produit): Observable<any> {
+    const url = `${this.articlesUrl}/${article.id}`;
+    return this.http.put(url, article, this.httpOptions).pipe(
+      catchError(this.handleError<any>('updateArticle'))
+    );
+  }
 
-}
+  deleteProductById (id:number): Observable<Produit> {
+    const url = `${this.articlesUrl}/${id}`;
 
+    return this.http.delete<Produit>(url, this.httpOptions).pipe(
+      catchError(this.handleError<Produit>('deleteArticle'))
+    );
+  }
 
+ 
 
-deleteProductById(id: number) {
-  this.produits = this.produits.filter(product => product.id !== id);
-  this.ProductsChanged.next(this.produits);
-
-}
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
+  }
+  
 }

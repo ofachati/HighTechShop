@@ -29,7 +29,9 @@ export class ProduitListeComponent implements OnInit,OnDestroy  {
       this.categorie = params.get('categorie') as string;
       console.log(this.categorie)
 
-      this.produits = this.produitService.getProductsByCategory(this.categorie);
+      //this.produits = this.produitService.getProductsByCategory(this.categorie);
+      this.produitService.getProductsBySubCategory(this.categorie).subscribe(produits => this.produits = produits);
+
       console.log(this.produits)
 
   });

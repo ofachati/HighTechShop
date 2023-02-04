@@ -43,6 +43,7 @@ import { ProduitAddEditComponent } from './components/produit-add-edit/produit-a
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSnackBarModule,
     MatDialogModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
