@@ -79,13 +79,14 @@ export class ProduitAddEditComponent implements OnInit {
 
 
       if(this.optionalProduct !== undefined){
-
+          
         this.produitService.updateProduit(this.optionalProduct);
         this.location.back()
 
       }
       else{this.produitService.addProduit(libelle, description, marque, prix, categorie, subCategorie, photo);
-        this.location.back();
+       console.log("hery from component")
+        //this.location.back();
 
       
       }

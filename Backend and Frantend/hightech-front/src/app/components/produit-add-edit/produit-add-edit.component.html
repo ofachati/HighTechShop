@@ -8,7 +8,7 @@
         </mat-card-header>
     
         <mat-card-content>
-    
+
             <mat-form-field appearance="outline" style="width: 400px;" >
                 <!-- <mat-icon matPreffix>people</mat-icon>--><input formControlName="photo" matInput placeholder="Entrer photo"  >
                  <mat-label>photo</mat-label>
@@ -32,28 +32,47 @@
             </mat-form-field>
 
             <br>
-
             <mat-form-field appearance="outline" style="width: 400px;" >
-                <!-- <mat-icon matPreffix>people</mat-icon>--><input formControlName="prix" matInput placeholder="Entrer prix"  >
-                 <mat-label>prix</mat-label>
-                 <mat-hint>Entrer prix</mat-hint>
-            </mat-form-field>
+              <!-- <mat-icon matPreffix>people</mat-icon>--><input formControlName="description" matInput placeholder="Entrer marque"  >
+               <mat-label>description</mat-label>
+               <mat-hint>Entrer description</mat-hint>
+           </mat-form-field>
 
-            <br>
+          <br>
+        <mat-form-field appearance="outline" style="width: 400px;" >
+            <!-- <mat-icon matPreffix>people</mat-icon>--><input formControlName="prix" matInput placeholder="Entrer prix"  >
+            <mat-label>prix</mat-label>
+            <mat-hint>Entrer prix</mat-hint>
+        </mat-form-field>
+      <br>
+          <mat-form-field appearance="outline" style="width: 400px;" >
+            <!-- <mat-icon matPreffix>people</mat-icon>-->
+             <mat-label>SubCategorie</mat-label>
+             <mat-hint>choisir une subcategorie</mat-hint>
+            <mat-select  formControlName="subCategorie"   placeholder="choisir une subcategorie">
+                <mat-option value="Smart Phone">Smart Phone</mat-option>
+                <mat-option value="Tel fixe">Tel fixe</mat-option>
+                <mat-option value="Accessoires téléphone">Accessoires téléphone</mat-option>
+                <mat-option value="PC Portable">PC Portable</mat-option>
+                <mat-option value="PC de Bureau">PC de Bureau</mat-option>
+                <mat-option value="Accessoires ordinateurs">Accessoires ordinateurs</mat-option>
+                <mat-option value="Disque dur">Disque dur</mat-option>
+                <mat-option value="Clé USB">Clé USB</mat-option>
+                <mat-option value="Accessoires stockage">Accessoires stockage</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <br>
+
+          
 
             <mat-form-field appearance="outline" style="width: 400px;" >
                 <!-- <mat-icon matPreffix>people</mat-icon>-->
                  <mat-label>categorie</mat-label>
                  <mat-hint>choisir une categorie</mat-hint>
                 <mat-select  formControlName="categorie"   placeholder="choisir une categorie">
-                    <mat-option value="Smart Phone">Smart Phone</mat-option>
-                    <mat-option value="Tel fixe">Tel fixe</mat-option>
-                    <mat-option value="Accessoires téléphone">Accessoires téléphone</mat-option>
-                    <mat-option value="PC Portable">PC Portable</mat-option>
-                    <mat-option value="PC de Bureau">PC de Bureau</mat-option>
-                    <mat-option value="Accessoires ordinateurs">Accessoires ordinateurs</mat-option>
-                    <mat-option value="Disque dur">Disque dur</mat-option>
-                    <mat-option value="Clé USB">Clé USB</mat-option>
+                    <mat-option value="Accessoires téléphone">téléphone</mat-option>
+                    <mat-option value="PC Portable">PC</mat-option>
                     <mat-option value="Accessoires stockage">Accessoires stockage</mat-option>
                 </mat-select>
             </mat-form-field>

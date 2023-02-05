@@ -29,7 +29,6 @@ export class ProduitCarteComponent implements OnInit {
       this.router.navigate(['ajouter-produit'], { state: { optionalProduct: product } });
 }
   onDeleteBtnClick(product: Produit) {
-  
     this.produitService.deleteProductById(this.produit.id);
   }
 }
