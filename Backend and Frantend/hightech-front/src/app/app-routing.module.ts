@@ -10,7 +10,7 @@ import { PanierListeComponent } from './components/panier-liste/panier-liste.com
 import { ProduitListeComponent } from './components/produit-liste/produit-liste.component';
 import { UrlMatcher } from '@angular/router';
 import { ProduitAddEditComponent } from './components/produit-add-edit/produit-add-edit.component';
-import { AdminAuthGuard } from './services/admin-auth.guard';
+import { AdminAuthGuard } from './guards/admin-auth.guard';
 
 /*
 //attempt to restrict id to be an integer in  "produit/:id" but it didn't work :(  
