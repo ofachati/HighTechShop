@@ -6,7 +6,7 @@
     <mat-grid-tile *ngFor="let product of produits">
       <app-produit-carte [produit]="product"></app-produit-carte>
     </mat-grid-tile>
-  </mat-grid-list>
+</mat-grid-list>
 
   <button mat-mini-fab *ngIf="loginService.isLoggedin()" color="accent" matTooltip="Ajouter un produit" routerLink="/ajouter-produit"  style="position: fixed;bottom: 2rem;right: 2rem; z-index: 70;" >
     <mat-icon>add</mat-icon>

@@ -29,7 +29,7 @@
 
 
 
-<mat-menu #menutelephonies="matMenu">
+<!--<mat-menu #menutelephonies="matMenu">
     <button mat-menu-item (click)="onCategoryClick('Smart Phone')">
       <mat-icon>smartphone</mat-icon>
       <span>Smart Phone</span>
@@ -42,7 +42,16 @@
       <mat-icon>watch</mat-icon>
       <span>Accesoires</span>
     </button>
+  </mat-menu>-->
+
+
+  <mat-menu #menutelephonies="matMenu">
+    <button *ngFor="let category of categorieService.getSubcategories(5) | async" mat-menu-item (click)="onCategoryClick(category.name)">
+      <mat-icon>{{category.icon}}</mat-icon>
+      <span>{{category.name}}</span>
+    </button>
   </mat-menu>
+
 
   <mat-menu #menuOrdinateur="matMenu">
     <button mat-menu-item (click)="onCategoryClick('PC Portable')">

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Categorie } from '../models/Categorie';
 import { Produit } from '../models/Produit';
 import { catchError, Observable, of, Subject, tap } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
@@ -10,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class ProduitService {
   ProductsChanged = new Subject<Produit[]>();
-  private articlesUrl = '/rest/articles';  // URL to web api
+  private articlesUrl = '/rest/articles';  // URL tok web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

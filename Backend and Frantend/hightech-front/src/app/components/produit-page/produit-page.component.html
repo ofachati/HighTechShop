@@ -2,12 +2,12 @@
 <span *ngIf="product$ | async as produit">
 
 <mat-grid-list cols="2" rowHeight="700px" gutterSize="0px">
-  <mat-grid-tile style="border: 3px;" >
+  <mat-grid-tile style="border: 3px;" colspan="1" >
     <img [src]="produit.photo" style="height:400px;width:auto; text-align: center; " >
   </mat-grid-tile>
 
 
-  <mat-grid-tile >
+  <mat-grid-tile colspan="1" >
 
 
     <mat-card class="example-card mat-elevation-z4" style="width: 400px;" >

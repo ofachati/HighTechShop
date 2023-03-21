@@ -1,6 +1,6 @@
 {
-    "/rest": {
-      "target": "http://localhost:8080/hightech-back",
-      "secure": false
-    }
+  "/rest": {
+    "target": "http://localhost:8080/hightech-back",
+    "secure": false
   }
+}
