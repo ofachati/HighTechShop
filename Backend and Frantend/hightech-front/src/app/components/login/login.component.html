@@ -1,46 +1,52 @@
 
 <div class="background-div">
-<form [formGroup]="loginform" (ngSubmit)="onFormSubmit()">
-<div class="mat-card-cvr">
-<mat-card class="example-card mat-elevation-z8">
-    <mat-card-header>
-      <mat-card-title>Admin Login</mat-card-title>
-    </mat-card-header>
-
-    <mat-card-content>
-      
-
-        <mat-form-field appearance="outline" style="width: 400px;" >
-            <!-- <mat-icon matPreffix>people</mat-icon>--><input formControlName="login" matInput placeholder="Entrer votre login"  >
-             <mat-label>Login</mat-label>
-             <mat-hint>Entrer votre login</mat-hint>
-           </mat-form-field>
-           <br>
-           <mat-form-field appearance="outline" style="width: 400px;" >
-             <!--<mat-icon matPreffix>lock</mat-icon>-->
-             <mat-label>Mot de passe</mat-label>
-             <mat-hint>Entrer votre Mot de passe</mat-hint>
-             <input  formControlName="password" matInput placeholder="Entrer votre Mot de passe" matInput [type]="hide ? 'password' : 'text' "  >
-             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-             </button>
-           </mat-form-field>
-           <br>
-         
-
-
-
-    </mat-card-content>
-    <mat-card-actions>
-
-      <button mat-raised-button color="primary"  type="submit"> Login</button>
-
-    </mat-card-actions>
-   
-    <mat-card-footer>
-
-    </mat-card-footer>
-  </mat-card>
-</div>
-</form>
+  <form [formGroup]="loginform" (ngSubmit)="onFormSubmit()">
+    <div class="mat-card-cvr">
+      <mat-card class="example-card mat-elevation-z8">
+        <mat-card-header>
+          <mat-card-title>Admin Login</mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content>
+  
+          <mat-form-field appearance="outline" style="width: 400px;">
+            <input formControlName="login" matInput placeholder="Entrer votre login">
+            <mat-label>Login</mat-label>
+            <mat-hint>Entrer votre login</mat-hint>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline" style="width: 400px;">
+            <mat-label>Mot de passe</mat-label>
+            <mat-hint>Entrer votre Mot de passe</mat-hint>
+            <input formControlName="password" matInput placeholder="Entrer votre Mot de passe" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br>
+  
+          <!-- Show error message if there is one -->
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+  
+          <!-- Show success message if there is one -->
+          <div *ngIf="successMessage" class="success-message">
+            {{ successMessage }}
+          </div>
+  
+        </mat-card-content>
+        <mat-card-actions>
+  
+          <button mat-raised-button color="primary" type="submit"> Login</button>
+  
+        </mat-card-actions>
+  
+        <mat-card-footer>
+  
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </form>
+  
 </div>

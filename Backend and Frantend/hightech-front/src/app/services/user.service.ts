@@ -35,4 +35,10 @@ export class UserService {
   isAdmin(id: number): Observable<boolean> {
     return this.http.get<boolean>(`${this.baseUrl}/${id}/isAdmin`);
   }
+
+  getUserByCredentials(username: string, password: string) {
+    const url = `${this.baseUrl}/getUserByCredentials?username=${username}&password=${password}`;
+    return this.http.get(url);
+  }
+
 }

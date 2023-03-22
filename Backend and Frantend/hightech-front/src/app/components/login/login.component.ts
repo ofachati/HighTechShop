@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   hide = true;
   loginform!: FormGroup;
 
+  errorMessage = '';
+  successMessage = '';
 
   constructor(protected loginService:LoginService,private router: Router) { }
 
@@ -22,13 +24,33 @@ export class LoginComponent implements OnInit {
       password: new FormControl('')})
   }
 
-
+/*
   onFormSubmit(){
    console.log('login:' + this.loginform.get('login')?.value);
    if(this.loginService.login(this.loginform.get('login')?.value,this.loginform.get('password')?.value)){
     this.router.navigate(['/acceuil']);
    }
   }
+  */
+  onFormSubmit() {
+    if (this.loginform.valid) {
+      this.loginService.login(this.loginform.value.login, this.loginform.value.password)
+        .subscribe(
+          result => {
+            if (result) {
+              this.successMessage = 'You have been logged in successfully.';
+              this.router.navigate(['/acceuil']);
+            } else {
+              this.errorMessage = 'Invalid username or password.';
+            }
+          }, 
+          error => {
+            this.errorMessage = error.message;
+          }
+        );
+    }
+  }
+
 
 }
 
