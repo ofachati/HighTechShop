@@ -14,10 +14,12 @@
     </button>
     <nav>
      
-        <button  mat-icon-button *ngIf="!loginService.isLoggedin()" matTooltip="Admin login" routerLink="/login"  >
-            <mat-icon >perm_identity</mat-icon>
-        </button>
-        <button mat-button   *ngIf="loginService.isLoggedin()" style="border: 2px solid black;border-radius: 100px;"> <mat-icon >perm_identity</mat-icon>Admin</button>
+      <button mat-icon-button *ngIf="!loginService.isLoggedin()" matTooltip="login" (click)="openLoginDialog()">
+        <mat-icon>perm_identity</mat-icon>
+      </button>
+      
+        <button mat-button   *ngIf="loginService.isLoggedin()" style="border: 2px solid black;border-radius: 100px;"> 
+          <mat-icon >perm_identity</mat-icon>{{userService.currentUser?.prenom}} {{userService.currentUser?.nom}}</button>
         <button  mat-icon-button  *ngIf="loginService.isLoggedin()" (click)="loginService.logout()"  matTooltip="logout" routerLink="/accueil"    >
             <mat-icon style="color: rgb(205, 0, 0);" >exit_to_app</mat-icon>
         </button>

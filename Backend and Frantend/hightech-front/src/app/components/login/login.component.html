@@ -1,13 +1,7 @@
+<h3>Login</h3>
 
-<div class="background-div">
-  <form [formGroup]="loginform" (ngSubmit)="onFormSubmit()">
-    <div class="mat-card-cvr">
-      <mat-card class="example-card mat-elevation-z8">
-        <mat-card-header>
-          <mat-card-title>Admin Login</mat-card-title>
-        </mat-card-header>
   
-        <mat-card-content>
+  <form [formGroup]="loginform" (ngSubmit)="onFormSubmit()">  
   
           <mat-form-field appearance="outline" style="width: 400px;">
             <input formControlName="login" matInput placeholder="Entrer votre login">
@@ -26,7 +20,7 @@
           <br>
   
           <!-- Show error message if there is one -->
-          <div *ngIf="errorMessage" class="error-message">
+          <div *ngIf="errorMessage" class="error-message" style="color:red;">
             {{ errorMessage }}
           </div>
   
@@ -35,18 +29,10 @@
             {{ successMessage }}
           </div>
   
-        </mat-card-content>
-        <mat-card-actions>
+        
   
           <button mat-raised-button color="primary" type="submit"> Login</button>
   
-        </mat-card-actions>
-  
-        <mat-card-footer>
-  
-        </mat-card-footer>
-      </mat-card>
-    </div>
+       
   </form>
   
-</div>

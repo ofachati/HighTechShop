@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Produit } from 'src/app/models/Produit';
 import { LoginService } from 'src/app/services/login.service';
 import { ProduitService } from 'src/app/services/produit.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-produit-liste',
@@ -20,11 +21,13 @@ export class ProduitListeComponent implements OnInit,OnDestroy  {
 
 
   
-    constructor(protected produitService: ProduitService,private activatedRoute: ActivatedRoute,protected loginService: LoginService) { }
+    constructor(protected produitService: ProduitService,private activatedRoute: ActivatedRoute,
+      protected loginService: LoginService,
+      protected userService: UserService
+      ) { }
   
   
     ngOnInit(): void {
-      
     this.routesubscription=this.activatedRoute.paramMap.subscribe(params => {
       this.categorie = params.get('categorie') as string;
       console.log(this.categorie)

@@ -15,11 +15,14 @@ export class LoginService {
 
 
     login(username: string, password: string): Observable<boolean> {
+
+  
       const url = `${this.apiUrl}/getUserByCredentials?username=${username}&password=${password}`;
       return this.http.get<User>(url).pipe(
         map((user: User) => {
           if (user) {
             localStorage.setItem('user', JSON.stringify(user));
+            this.userService.currentUser=user as User;
             return true;
           } else {
             return false;

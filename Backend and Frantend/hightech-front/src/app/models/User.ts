@@ -6,6 +6,6 @@ export interface User {
     adresse: string;
     username: string;
     motDePasse: string;
-    isAdmin: boolean;
+    admin: boolean;
   }
   

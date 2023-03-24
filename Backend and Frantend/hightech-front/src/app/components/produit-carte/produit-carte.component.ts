@@ -3,6 +3,7 @@ import { Produit } from 'src/app/models/Produit';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ProduitService } from 'src/app/services/produit.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-produit-carte',
@@ -11,7 +12,8 @@ import { ProduitService } from 'src/app/services/produit.service';
 })
 export class ProduitCarteComponent implements OnInit {
   @Input() produit!: Produit;
-  constructor(private router: Router, protected loginService:LoginService,private produitService:ProduitService) { }
+  constructor(private router: Router, protected loginService:LoginService,private produitService:ProduitService,
+    protected userService: UserService) { }
 
   ngOnInit(): void {
   }

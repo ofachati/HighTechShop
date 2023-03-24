@@ -8,7 +8,7 @@
     </mat-grid-tile>
 </mat-grid-list>
 
-  <button mat-mini-fab *ngIf="loginService.isLoggedin()" color="accent" matTooltip="Ajouter un produit" routerLink="/ajouter-produit"  style="position: fixed;bottom: 2rem;right: 2rem; z-index: 70;" >
+  <button mat-mini-fab *ngIf="userService.currentUser.admin" color="accent" matTooltip="Ajouter un produit" routerLink="/ajouter-produit"  style="position: fixed;bottom: 2rem;right: 2rem; z-index: 70;" >
     <mat-icon>add</mat-icon>
   </button>
 

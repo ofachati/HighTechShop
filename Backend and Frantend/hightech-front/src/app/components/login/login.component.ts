@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   successMessage = '';
 
-  constructor(protected loginService:LoginService,private router: Router) { }
+  constructor(protected loginService:LoginService,private router: Router,
+    private dialogRef: MatDialogRef<LoginComponent>
+    ) { }
 
   ngOnInit(): void {
      this.loginform = new FormGroup({
@@ -40,12 +43,14 @@ export class LoginComponent implements OnInit {
             if (result) {
               this.successMessage = 'You have been logged in successfully.';
               this.router.navigate(['/acceuil']);
+              this.dialogRef.close(); // Close the dialog on successful login
+
             } else {
               this.errorMessage = 'Invalid username or password.';
             }
           }, 
           error => {
-            this.errorMessage = error.message;
+            this.errorMessage = 'Invalid username or password..';
           }
         );
     }

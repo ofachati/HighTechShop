@@ -9,6 +9,7 @@ import { User } from '../models/User';
 export class UserService {
 
   private baseUrl = '/rest/users';
+  currentUser!: User;
 
   constructor(private http: HttpClient) { }
 
@@ -40,5 +41,9 @@ export class UserService {
     const url = `${this.baseUrl}/getUserByCredentials?username=${username}&password=${password}`;
     return this.http.get(url);
   }
+
+  
+
+
 
 }
