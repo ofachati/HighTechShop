@@ -6,6 +6,5 @@ export interface Produit {
     marque: string;
     prix: number;
     categorie: string;
-    subCategorie: string;
     photo: string;
 }

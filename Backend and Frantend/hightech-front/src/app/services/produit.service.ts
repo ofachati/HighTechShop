@@ -42,25 +42,18 @@ export class ProduitService {
 
 
     
-  getProductsBySubCategory(subCategory: string): Observable<Produit[]> {
-    const url = `${this.articlesUrl}/subcategory/${subCategory}`;
-    return this.http.get<Produit[]>(url)
-      .pipe(
-        catchError(this.handleError<Produit[]>('getArticleBySubCategory', []))
-      );
-  }
+
 
   
   
 
-  addProduit(libelle: string, description: string, marque: string, prix: number, categorie: string, subCategorie: string, photo: string) {
+  addProduit(libelle: string, description: string, marque: string, prix: number, categorie: string, photo: string) {
     let params = new HttpParams();
     params = params.append('libelle', libelle);
     params = params.append('description', description);
     params = params.append('marque', marque);
     params = params.append('prix', prix.toString());
     params = params.append('categorie', categorie);
-    params = params.append('subCategorie', subCategorie);
     params = params.append('photo', photo);
   
     return this.http.post<any>(this.articlesUrl+"/", params,{ headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) })

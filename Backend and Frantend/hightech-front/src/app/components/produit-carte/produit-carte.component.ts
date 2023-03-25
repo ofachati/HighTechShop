@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ProduitService } from 'src/app/services/produit.service';
 import { UserService } from 'src/app/services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ProduitAddEditComponent } from '../produit-add-edit/produit-add-edit.component';
 
 @Component({
   selector: 'app-produit-carte',
@@ -13,7 +15,8 @@ import { UserService } from 'src/app/services/user.service';
 export class ProduitCarteComponent implements OnInit {
   @Input() produit!: Produit;
   constructor(private router: Router, protected loginService:LoginService,private produitService:ProduitService,
-    protected userService: UserService) { }
+    protected userService: UserService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -28,9 +31,17 @@ export class ProduitCarteComponent implements OnInit {
   }
   onEditBtnClick(product: Produit) {
     console.log(product);
-      this.router.navigate(['ajouter-produit'], { state: { optionalProduct: product } });
-}
+      //this.router.navigate(['ajouter-produit'], { state: { optionalProduct: product } });
+      const dialogRef = this.dialog.open(ProduitAddEditComponent, {
+        data: { optionalProduct: product }
+      });
+    }
   onDeleteBtnClick(product: Produit) {
     this.produitService.deleteProductById(this.produit.id);
+  }
+
+
+  openLoginDialog() {
+    this.dialog.open(ProduitAddEditComponent);
   }
 }

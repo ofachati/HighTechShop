@@ -1,9 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Produit } from 'src/app/models/Produit';
 import { ProduitService } from 'src/app/services/produit.service';
 import { Location } from '@angular/common';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-produit-add-edit',
@@ -16,12 +18,17 @@ export class ProduitAddEditComponent implements OnInit {
   @Input() optionalProduct!: Produit ;
 
 
-  constructor(private router: Router,private produitService:ProduitService, private  activatedRoute :ActivatedRoute, private location: Location) { }
+  constructor
+  ( @Inject(MAT_DIALOG_DATA) public data: any,
+    private router: Router,private produitService:ProduitService,
+     private  activatedRoute :ActivatedRoute,
+      private location: Location) { }
   
   ngOnInit(): void {
-    //this.optionalProduct== this.activatedRoute.snapshot.extras.state.inputValue;
-    this.optionalProduct = history.state.optionalProduct;
-      
+    
+    //this.optionalProduct = history.state.optionalProduct;
+    
+    
     this.produitform = new FormGroup({
       libelle: new FormControl('', [Validators.required]),
       marque: new FormControl('', [Validators.required]),
@@ -29,24 +36,24 @@ export class ProduitAddEditComponent implements OnInit {
       categorie: new FormControl('', [Validators.required]),
       //photo: new FormControl('', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')])
       photo: new FormControl('', [Validators.required]),
-      subCategorie: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
-
 
     });
 
 
-    console.log("ggg");
+  
+    
+    if(this.data !== undefined){
+      this.optionalProduct = this.data.optionalProduct;
+
+      console.log("ggg");
     console.log(this.optionalProduct);
-    if(this.optionalProduct !== undefined){
-      console.log("hhhhhhhhks");
       this.produitform.patchValue({
         libelle: this.optionalProduct.libelle,
         marque: this.optionalProduct.marque,
         prix: this.optionalProduct.prix,
         categorie: this.optionalProduct.categorie,
         photo: this.optionalProduct.photo,
-        subCategorie: this.optionalProduct.subCategorie,
         description: this.optionalProduct.description
     });
   } 
@@ -73,7 +80,6 @@ export class ProduitAddEditComponent implements OnInit {
       let prix = this.produitform.get('prix')?.value;
       let categorie = this.produitform.get('categorie')?.value;
       let photo = this.produitform.get('photo')?.value;
-      let subCategorie=this.produitform.get('subCategorie')?.value;
       let description=this.produitform.get('description')?.value;
 
 
@@ -81,10 +87,10 @@ export class ProduitAddEditComponent implements OnInit {
       if(this.optionalProduct !== undefined){
           
         this.produitService.updateProduit(this.optionalProduct);
-        this.location.back()
+       // this.location.back()
 
       }
-      else{this.produitService.addProduit(libelle, description, marque, prix, categorie, subCategorie, photo);
+      else{this.produitService.addProduit(libelle, description, marque, prix, categorie, photo);
        console.log("hery from component")
         //this.location.back();
 
