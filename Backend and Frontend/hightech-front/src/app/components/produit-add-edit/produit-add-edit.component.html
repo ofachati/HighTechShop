@@ -1,0 +1,79 @@
+
+<h5>Ajouter/modifier un nouveau produit</h5>
+
+    <form [formGroup]="produitform" (ngSubmit)="produitform.valid && onFormSubmit()">
+
+
+            
+               
+            <br>
+
+            <mat-form-field appearance="outline" style="width: 400px;" >
+                <input formControlName="libelle" matInput placeholder="Entrer libelle"  >
+                <mat-icon matPrefix >text_fields</mat-icon>
+                <mat-label>libelle</mat-label>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" style="width: 400px; margin-left: 20px;" >
+               <input formControlName="marque" matInput placeholder="Entrer marque"  >
+               <mat-icon matPrefix >business</mat-icon>
+                 <mat-label>marque</mat-label>
+            </mat-form-field>
+
+            <br>
+            
+            <mat-form-field appearance="outline" style="width: 400px;" >
+              <mat-label>Categorie</mat-label>
+             <mat-select  formControlName="categorie"   placeholder="choisir une subcategorie">
+                 <mat-option value="Smart Phone">Smart Phone</mat-option>
+                 <mat-option value="Tel fixe">Tel fixe</mat-option>
+                 <mat-option value="Accessoires téléphone">Accessoires téléphone</mat-option>
+                 <mat-option value="PC Portable">PC Portable</mat-option>
+                 <mat-option value="PC de Bureau">PC de Bureau</mat-option>
+                 <mat-option value="Accessoires ordinateurs">Accessoires ordinateurs</mat-option>
+                 <mat-option value="Disque dur">Disque dur</mat-option>
+                 <mat-option value="Clé USB">Clé USB</mat-option>
+                 <mat-option value="Accessoires stockage">Accessoires stockage</mat-option>
+             </mat-select>
+             <mat-icon matPrefix >category</mat-icon>
+           </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 400px; margin-left: 20px;" >
+            <input formControlName="prix" matInput placeholder="Entrer prix"  >
+            <mat-icon matPrefix >euro_symbol</mat-icon>
+            <mat-label>prix</mat-label>
+        </mat-form-field>
+     
+        
+     
+        <br>
+
+        <mat-form-field appearance="outline" style="width: 820px;" >
+          <input formControlName="photo" matInput placeholder="Entrer photo"  >
+          <mat-icon matPrefix >photo</mat-icon>
+           <mat-label>photo</mat-label>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="outline" style="width: 820px;">
+        <textarea formControlName="description" matInput placeholder="Entrer marque" rows="5"></textarea>
+        <mat-icon matPrefix>description</mat-icon>
+        <mat-label>description</mat-label>
+      </mat-form-field>
+         
+
+          <br>
+          
+
+
+             
+    
+    
+    
+ <br>
+    
+          <button mat-raised-button color="primary"  type="submit"> Enregister le produit</button>
+
+   
+    </form>

@@ -1,0 +1,82 @@
+
+<mat-horizontal-stepper style="width:60%;margin: 0 auto">
+    <mat-step label="Voir le panier">
+      <ng-template matStepLabel><mat-icon>shopping_cart</mat-icon>Panier</ng-template>
+      <app-panier-carte [Panier_unit]="product" *ngFor="let product of panierProducts"></app-panier-carte>
+      <div>
+        <button  mat-raised-button  color="primary" matStepperNext>Continuer</button>
+      </div>
+    </mat-step>
+  
+    <mat-step label="Information de livraison">
+        <ng-template matStepLabel><mat-icon>local_shipping</mat-icon>Livraison</ng-template>
+        
+        <form [formGroup]="shippingForm">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="name" placeholder="Nom complet">
+            <mat-icon matPrefix>person</mat-icon>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="address" placeholder="Adresse">
+            <mat-icon matPrefix>home</mat-icon>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="city" placeholder="Ville">
+            <mat-icon matPrefix>location_city</mat-icon>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="postalCode" placeholder="Code postal">
+            <mat-icon matPrefix>location_on</mat-icon>
+          </mat-form-field>
+          <br>
+  
+          <div>
+            <button  mat-raised-button  color="warn" matStepperPrevious>Retour</button>
+            <button  mat-raised-button  color="primary" matStepperNext>Continuer</button>
+          </div>
+        </form>
+      </mat-step>
+      
+  
+    <mat-step label="Détails de paiement">
+        <ng-template matStepLabel>
+          <mat-icon>payment</mat-icon>Paiement
+        </ng-template>
+        
+        <form >
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="cardNumber" placeholder="Numéro de carte">
+            <mat-icon matPrefix>credit_card</mat-icon>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="expiryDate" placeholder="Date d'expiration">
+            <mat-icon matPrefix>event</mat-icon>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="cvv" placeholder="CVV">
+            <mat-icon matPrefix>lock</mat-icon>
+          </mat-form-field>
+          
+          <div>
+            <button  mat-raised-button  color="warn" matStepperPrevious>Retour</button>
+            <button  mat-raised-button  color="primary" matStepperNext>Continuer</button>
+          </div>
+        </form>
+      </mat-step>
+      
+  
+    <mat-step label="Valider la commande">
+      <ng-template matStepLabel><mat-icon>done</mat-icon>Valider</ng-template>
+      <h3>Prix total : {{panierService.prix_total_panier()}} €</h3>
+      <div>
+        <button  mat-raised-button  color="warn" matStepperPrevious>Retour</button>
+        <button  mat-raised-button  color="primary" (click)="valider_commande()" > <mat-icon>done</mat-icon> Valider la commande</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
