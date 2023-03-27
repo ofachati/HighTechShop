@@ -32,6 +32,8 @@ public class CommandeResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addCommande(Commande commande) {
+		System.out.println("adding document");
+		System.out.println(commande);
         Commande addedCommande = CommandeDao.instance.addCommande(commande);
         return Response.status(Response.Status.CREATED).entity(addedCommande).build();
     }

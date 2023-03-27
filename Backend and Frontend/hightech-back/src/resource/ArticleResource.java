@@ -38,6 +38,7 @@ public class ArticleResource {
 		return articleDao.getModel().get(id);
 	}
 	
+	
 	@GET
 	@Path("/category/{category}")
 	@Produces(MediaType.APPLICATION_JSON )
