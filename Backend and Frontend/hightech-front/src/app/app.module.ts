@@ -45,6 +45,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -76,10 +77,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatCardModule,
     MatBadgeModule,
-
     MatCommonModule,
     MatGridListModule,
-  
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -88,7 +87,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatSelectModule,
     MatDividerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,7 +23,7 @@ export class ProduitCarteComponent implements OnInit {
 
   onCardClick(product: Produit) {
    
-    if (!this.userService.currentUser.admin){
+    if (!this.userService.currentUser?.admin  || this.userService.currentUser == undefined ){
       console.log(product);
     this.router.navigate(['/produit', product.id]);
   }
