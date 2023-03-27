@@ -4,9 +4,9 @@
 
     <span class="example-spacer"></span>
 
-  <button mat-button  [matMenuTriggerFor]="menuOrdinateur"  > <mat-icon>laptop</mat-icon> Ordinateurs</button>
-  <button mat-button  [matMenuTriggerFor]="menutelephonies"> <mat-icon>stay_current_portrait</mat-icon>Téléphonies</button>
-  <button mat-button  [matMenuTriggerFor]="menuStockage"> <mat-icon>save</mat-icon> Stockage</button>
+  <button mat-button  [matMenuTriggerFor]="menuOrdinateur"  > <mat-icon>laptop</mat-icon> Ordinateurs </button>
+  <button mat-button  [matMenuTriggerFor]="menutelephonies" > <mat-icon>stay_current_portrait</mat-icon> Téléphonies </button>
+  <button mat-button  [matMenuTriggerFor]="menuStockage"    > <mat-icon>save</mat-icon> Stockage    </button>
 
     <span class="example-spacer"></span>
     
@@ -16,12 +16,10 @@
         <mat-icon>perm_identity</mat-icon>
       </button>
       
-
-
         <button mat-button   *ngIf="loginService.isLoggedin()" style="border: 2px solid black;border-radius: 100px;"> 
           <mat-icon >perm_identity</mat-icon>{{userService.currentUser?.prenom}} {{userService.currentUser?.nom}}</button>
        
-          <button mat-icon-button *ngIf="!userService.currentUser?.admin " matTooltip="Panier" routerLink="/panier"  >
+          <button mat-icon-button *ngIf="!userService.currentUser?.admin" matTooltip="Panier" routerLink="/panier"  >
             <mat-icon [matBadge]="panierService.quantite_total_panier()" [matBadgeHidden]="panierService.quantite_total_panier() < 1" matBadgeColor="warn">add_shopping_cart</mat-icon>
           </button>
           

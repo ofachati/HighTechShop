@@ -16,7 +16,6 @@ export class PanierListeComponent implements OnInit, OnDestroy {
   panierProducts!: Panier[];
   private subscription!: Subscription;
   shippingForm!: FormGroup;
-  commande!: Commande;
 
   currentStep = 0;
   constructor(
@@ -58,14 +57,27 @@ etat: string;
 produits: number[];
 total: number;
 */ 
-    
-    this.commande.user= this.userService.currentUser.id;
-    this.commande.date= new Date();
-    this.commande.adresseLivraison= "hahahahahhahahahhah test adress";
-    this.commande.etat= "en cours";
-    this.commande.produits= [1,6,9,6,9];
-    this.commande.total=1400;
-    this.commandeService.addCommande( this.commande);
+    const commande ={} as Commande;
+    //this.commande.user= this.userService.currentUser.id;
+    commande.user= this.userService.currentUser?.id;
+    commande.date= new Date();
+
+        // Get the values of the address, postalCode, and city form controls
+    const address = this.shippingForm.get('address')?.value;
+    const postalCode = this.shippingForm.get('postalCode')?.value;
+    const city = this.shippingForm.get('city')?.value;
+
+    commande.adresseLivraison= `${address}, ${postalCode} ${city}`;
+    commande.etat= "en cours";
+    commande.produits= this.panierService.get_panier().flatMap(p => {
+      const result = [];
+      for (let i = 0; i < p.quantite; i++) {
+        result.push(p.id);
+      }
+      return result;
+    });;
+    commande.total=this.panierService.prix_total_panier();
+    this.commandeService.addCommande(commande);
     this.panierService.empty_panier();
   }
 }

@@ -13,7 +13,7 @@
             <mat-icon>remove</mat-icon>
           </button>
           <h3>{{ Panier_unit.quantite }}</h3>
-          <button mat-mini-fab color="accent" (click)="panierService.insert_panier(Panier_unit.nom, Panier_unit.prix )">
+          <button mat-mini-fab color="accent" (click)="panierService.insert_panier(Panier_unit.id,Panier_unit.nom, Panier_unit.prix )">
             <mat-icon>add</mat-icon>
           </button>
         </mat-grid-tile>

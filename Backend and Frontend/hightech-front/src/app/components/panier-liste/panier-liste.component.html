@@ -1,16 +1,22 @@
 
 <mat-horizontal-stepper style="width:60%;margin: 0 auto">
     <mat-step label="Voir le panier">
-      <ng-template matStepLabel><mat-icon>shopping_cart</mat-icon>Panier</ng-template>
+      <ng-template matStepLabel><mat-icon>shopping_cart</mat-icon></ng-template>
+      <h3>Votre Panier</h3>
       <app-panier-carte [Panier_unit]="product" *ngFor="let product of panierProducts"></app-panier-carte>
+      <br>
+      <mat-chip>
+        <mat-icon>attach_money</mat-icon>
+        <span>Prix total : {{panierService.prix_total_panier()}} €</span>
+      </mat-chip>
       <div>
         <button  mat-raised-button  color="primary" matStepperNext>Continuer</button>
       </div>
     </mat-step>
   
     <mat-step label="Information de livraison">
-        <ng-template matStepLabel><mat-icon>local_shipping</mat-icon>Livraison</ng-template>
-        
+        <ng-template matStepLabel><mat-icon>local_shipping</mat-icon></ng-template>
+        <h3>Information de livraison</h3>
         <form [formGroup]="shippingForm">
           <mat-form-field appearance="outline">
             <input matInput formControlName="name" placeholder="Nom complet">
@@ -43,9 +49,9 @@
   
     <mat-step label="Détails de paiement">
         <ng-template matStepLabel>
-          <mat-icon>payment</mat-icon>Paiement
+          <mat-icon>payment</mat-icon>
         </ng-template>
-        
+        <h3>Détails de paiement</h3>
         <form >
           <mat-form-field appearance="outline">
             <input matInput formControlName="cardNumber" placeholder="Numéro de carte">
@@ -71,11 +77,12 @@
       
   
     <mat-step label="Valider la commande">
-      <ng-template matStepLabel><mat-icon>done</mat-icon>Valider</ng-template>
-      <h3>Prix total : {{panierService.prix_total_panier()}} €</h3>
+      <ng-template matStepLabel><mat-icon>done</mat-icon></ng-template>
+      <h3>Valider la commande</h3>
+      <h5>Prix total : {{panierService.prix_total_panier()}} €</h5>
       <div>
         <button  mat-raised-button  color="warn" matStepperPrevious>Retour</button>
-        <button  mat-raised-button  color="primary" (click)="valider_commande()" > <mat-icon>done</mat-icon> Valider la commande</button>
+        <button  mat-raised-button  color="primary" (click)="valider_commande()"> <mat-icon>done</mat-icon> Valider</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

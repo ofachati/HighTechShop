@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Commande } from '../models/Commande';
 
 @Injectable({
@@ -20,11 +20,11 @@ export class CommandeService {
     return this.http.get<Commande>(`${this.BASE_URL}/${id}`);
   }
 
-  addCommande(commande: Commande): Observable<Commande> {
-    return this.http.post<Commande>(this.BASE_URL, commande);
+  addCommande(commande: Commande){
+    return this.http.post<Commande>(this.BASE_URL, commande).subscribe(r=>{});;
   }
 
-
+/*
   addProduit(libelle: string, description: string, marque: string, prix: number, categorie: string, photo: string) {
     let params = new HttpParams();
     params = params.append('libelle', libelle);
@@ -36,7 +36,7 @@ export class CommandeService {
   
     return this.http.post<any>(this.BASE_URL+"/", params,{ headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) })
     .subscribe(r=>{});
-  }
+  }*/
 
 
 
@@ -52,4 +52,12 @@ export class CommandeService {
   getCommandesByUser(userId: number): Observable<Commande[]> {
     return this.http.get<Commande[]>(`${this.BASE_URL}/user/${userId}`);
   }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
+  }
+
 }

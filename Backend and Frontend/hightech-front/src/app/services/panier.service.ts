@@ -11,13 +11,13 @@ export class PanierService {
   constructor() { }
 
 
-  insert_panier(nom : string,prix:number) {
+  insert_panier(id:number,nom : string,prix:number) {
     let PanierProducts: Panier[]
     let unparsedPanier= localStorage.getItem('PanierProducts');
     //if PanierProducts doesn't exist in local storage
     if(unparsedPanier == null){
       PanierProducts = [];
-      PanierProducts.push({nom:nom,quantite:1,prix:prix});
+      PanierProducts.push({id:id,nom:nom,quantite:1,prix:prix});
       localStorage.setItem('PanierProducts', JSON.stringify(PanierProducts));
       //
       this.panierProductsChanged.next(PanierProducts);
@@ -25,9 +25,9 @@ export class PanierService {
     //if PanierProducts exist in local storage
     else {
       PanierProducts = JSON.parse(unparsedPanier);
-      let existingProduct = PanierProducts.find(p => (p.nom === nom &&p.prix === prix));
+      let existingProduct = PanierProducts.find(p => (p.id === id));
       if(existingProduct === undefined) {
-        PanierProducts.push({nom:nom,quantite:1,prix:prix});
+        PanierProducts.push({id:id,nom:nom,quantite:1,prix:prix});
       } else {
         existingProduct.quantite++;
       }
