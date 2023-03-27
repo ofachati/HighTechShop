@@ -5,11 +5,14 @@
       <h3>Votre Panier</h3>
       <app-panier-carte [Panier_unit]="product" *ngFor="let product of panierProducts"></app-panier-carte>
       <br>
-      <mat-chip>
-        <mat-icon>attach_money</mat-icon>
-        <span>Prix total : {{panierService.prix_total_panier()}} €</span>
-      </mat-chip>
-      <div>
+      <mat-chip-list style="justify-content: flex-end;">
+        <mat-chip>
+          <mat-icon>euro_symbol</mat-icon>
+          <span>Prix total : {{panierService.prix_total_panier()}} €</span>
+        </mat-chip>
+      </mat-chip-list>
+      <br>
+      <div style="display:flex; justify-content:flex-end;">
         <button  mat-raised-button  color="primary" matStepperNext>Continuer</button>
       </div>
     </mat-step>
@@ -39,7 +42,7 @@
           </mat-form-field>
           <br>
   
-          <div>
+          <div style="display:flex; justify-content:flex-end;">
             <button  mat-raised-button  color="warn" matStepperPrevious>Retour</button>
             <button  mat-raised-button  color="primary" matStepperNext>Continuer</button>
           </div>
@@ -68,7 +71,7 @@
             <mat-icon matPrefix>lock</mat-icon>
           </mat-form-field>
           
-          <div>
+          <div style="display:flex; justify-content:flex-end;">
             <button  mat-raised-button  color="warn" matStepperPrevious>Retour</button>
             <button  mat-raised-button  color="primary" matStepperNext>Continuer</button>
           </div>
@@ -80,7 +83,7 @@
       <ng-template matStepLabel><mat-icon>done</mat-icon></ng-template>
       <h3>Valider la commande</h3>
       <h5>Prix total : {{panierService.prix_total_panier()}} €</h5>
-      <div>
+      <div style="display:flex; justify-content:flex-end;">
         <button  mat-raised-button  color="warn" matStepperPrevious>Retour</button>
         <button  mat-raised-button  color="primary" (click)="valider_commande()"> <mat-icon>done</mat-icon> Valider</button>
       </div>

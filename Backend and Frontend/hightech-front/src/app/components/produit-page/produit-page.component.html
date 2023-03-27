@@ -21,11 +21,17 @@
 
       <mat-card-content>
          <!--<mat-chip color="primary">
-         <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>         </mat-chip>
---> 
-        <p>Catégorie: {{ produit.categorie }}</p><br>
+         <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>         </mat-chip>--> 
+<br>
+        <mat-chip-list style="justify-content: flex-end;">
+          <mat-chip>
+            <span>{{ produit.categorie }}</span>
+          </mat-chip>
+        </mat-chip-list>
+<br>
         <H6>description:</H6>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quo eius nihil fugiat ex veritatis enim deserunt et, aut alias aliquid minus? Unde harum vel dolor rerum eaque tempora assumenda!</p>
+        <!--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quo eius nihil fugiat ex veritatis enim deserunt et, aut alias aliquid minus? Unde harum vel dolor rerum eaque tempora assumenda!</p>-->
+        <p>{{ produit.description }} {{ produit.description }} {{ produit.description }} {{ produit.description }} {{ produit.description }} </p>
         <br><br>
 
         <h4 style="text-align: end;">{{ produit.prix }} €</h4>

@@ -35,8 +35,8 @@ export class PanierListeComponent implements OnInit, OnDestroy {
     this.panierProducts = this.panierService.get_panier();
 
     this.shippingForm = this.fb.group({
-      name: ['', Validators.required],
-      address: ['', Validators.required],
+      name: [this.userService.currentUser?.prenom+" "+this.userService.currentUser?.nom, Validators.required],
+      address: [this.userService.currentUser?.adresse, Validators.required],
       city: ['', Validators.required],
       postalCode: ['', Validators.required],
     });
