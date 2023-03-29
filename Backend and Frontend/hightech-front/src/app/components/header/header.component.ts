@@ -8,6 +8,7 @@ import { ProduitService } from 'src/app/services/produit.service';
 import { LoginComponent } from '../login/login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
+import { Categorie } from 'src/app/models/Categorie';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
+  globalCategories: Categorie[] = [];
+  subCategories: Categorie[][] = [];
+
+
   constructor(protected panierService: PanierService ,
     protected categorieService:CategorieService,
     protected produitService:ProduitService,
@@ -23,6 +28,20 @@ export class HeaderComponent implements OnInit {
     private router: Router,protected loginService: LoginService,
     private dialog: MatDialog) { }
   ngOnInit(): void {
+
+
+    this.categorieService.getRootCategories().subscribe(categories => {
+      this.globalCategories = categories;
+      categories.forEach(category => {
+        this.categorieService.getSubcategories(category.id).subscribe(subCategories => {
+          this.subCategories[category.id] = subCategories;
+        });
+      });
+    });
+  
+
+    
+
   }
   
   openMyMenu(menuTrigger: MatMenuTrigger) {
@@ -35,12 +54,18 @@ closeMyMenu(menuTrigger: MatMenuTrigger) {
 }
 
 //
-onCategoryClick(categorie: string) {
-  this.router.navigate(['/produits', categorie]);
+onCategoryClick(categorie: Categorie) {
+  this.router.navigate(['/produits', categorie.name]);
 }
 
 openLoginDialog() {
   this.dialog.open(LoginComponent);
+}
+
+
+onRootCategoryClick(category: Categorie) {
+  // Do something when a global category button is clicked
+
 }
 
 }

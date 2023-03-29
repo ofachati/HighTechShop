@@ -4,9 +4,19 @@
 
     <span class="example-spacer"></span>
 
-  <button mat-button  [matMenuTriggerFor]="menuOrdinateur"  > <mat-icon>laptop</mat-icon> Ordinateurs </button>
-  <button mat-button  [matMenuTriggerFor]="menutelephonies" > <mat-icon>stay_current_portrait</mat-icon> Téléphonies </button>
-  <button mat-button  [matMenuTriggerFor]="menuStockage"    > <mat-icon>save</mat-icon> Stockage    </button>
+<span  *ngFor="let category of globalCategories" > 
+   <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>{{ category.icon }}</mat-icon>{{ category.name }}
+  </button>
+
+    <mat-menu #menu="matMenu">
+      <button *ngFor="let subCategory of subCategories[category.id]" mat-menu-item (click)="onCategoryClick(subCategory)">
+        <mat-icon>{{ subCategory.icon }}</mat-icon>
+        {{ subCategory.name }}
+      </button>
+    </mat-menu>
+
+</span>
 
     <span class="example-spacer"></span>
     
@@ -32,59 +42,5 @@
     
   </mat-toolbar>
 
-
-
-<mat-menu #menutelephonies="matMenu">
-    <button mat-menu-item (click)="onCategoryClick('Smart phone')">
-      <mat-icon>smartphone</mat-icon>
-      <span>Smart Phone</span>
-    </button>
-    <button mat-menu-item (click)="onCategoryClick('Tel Fixe')">
-      <mat-icon>phone</mat-icon>
-      <span>Tel fixe</span>
-    </button>
-    <button mat-menu-item (click)="onCategoryClick('Accessoires téléphone')">
-      <mat-icon>watch</mat-icon>
-      <span>Accesoires</span>
-    </button>
-  </mat-menu>
-
-
-  <!--<mat-menu #menutelephonies="matMenu">
-    <button *ngFor="let category of categorieService.getSubcategories(5) | async" mat-menu-item (click)="onCategoryClick(category.name)">
-      <mat-icon>{{category.icon}}</mat-icon>
-      <span>{{category.name}}</span>
-    </button>
-  </mat-menu>-->
-
-
-  <mat-menu #menuOrdinateur="matMenu">
-    <button mat-menu-item (click)="onCategoryClick('PC Portable')">
-      <mat-icon>laptop</mat-icon>
-      <span>PC Portable</span>
-    </button>
-    <button mat-menu-item (click)="onCategoryClick('PC de Bureau')" >
-      <mat-icon>tv</mat-icon>
-      <span>PC Bureau</span>
-    </button>
-    <button mat-menu-item (click)="onCategoryClick('Accessoires ordinateurs')">
-      <mat-icon>keyboard</mat-icon>
-      <span>Accesoires</span>
-    </button>
-  </mat-menu>
-
-
-  <mat-menu #menuStockage="matMenu">
-    <button mat-menu-item (click)="onCategoryClick('Disque dur')">
-      <mat-icon>sd_storage</mat-icon>
-      <span>Disque dur</span>
-    </button>
-    <button mat-menu-item (click)="onCategoryClick('Clé USB')">
-      <mat-icon>usb</mat-icon>
-      <span>clé USB</span>
-    </button>
-    <button mat-menu-item (click)="onCategoryClick('Accessoires stockage')">
-      <mat-icon>storage</mat-icon>
-      <span>Accesoires</span>
-    </button>
-  </mat-menu>
+<!--
+  -->

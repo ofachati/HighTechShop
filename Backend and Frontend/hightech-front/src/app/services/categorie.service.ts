@@ -24,4 +24,10 @@ export class CategorieService {
   getSubcategories(id: number): Observable<Categorie[]> {
     return this.http.get<Categorie[]>(`${this.categoriesUrl}/${id}/subcategories`);
   }
+
+
+  getRootCategories(): Observable<Categorie[]> {
+    const url = `${this.categoriesUrl}/root`;
+    return this.http.get<Categorie[]>(url);
+  }
 }
