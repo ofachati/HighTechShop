@@ -42,12 +42,7 @@ export class ProduitService {
 
 
     
-
-
-  
-  
-
-  addProduit(libelle: string, description: string, marque: string, prix: number, categorie: string, photo: string) {
+  addProduit(libelle: string, description: string, marque: string, prix: number, categorie: string, photo: string): Observable<any> {
     let params = new HttpParams();
     params = params.append('libelle', libelle);
     params = params.append('description', description);
@@ -57,8 +52,11 @@ export class ProduitService {
     params = params.append('photo', photo);
   
     return this.http.post<any>(this.articlesUrl+"/", params,{ headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) })
-    .pipe(catchError(this.handleError<any>('add product'))).subscribe(r=>{});
+      .pipe(
+        catchError(this.handleError<any>('add product'))
+      );
   }
+  
   
 
   updateProduit (article: Produit) {
@@ -66,7 +64,7 @@ export class ProduitService {
     console.log(article)
     return this.http.put(url, article,this.httpOptions).pipe(
       catchError(this.handleError<any>('updateArticle'))
-    ).subscribe(r=>{});
+    );
   }
 
   deleteProductById (id:number){
@@ -75,7 +73,7 @@ export class ProduitService {
   
     return this.http.delete<void>(url, this.httpOptions).pipe(
       catchError(this.handleError<Produit>('deleteArticle'))
-    ).subscribe(r=>{});
+    );
   }
 
  
