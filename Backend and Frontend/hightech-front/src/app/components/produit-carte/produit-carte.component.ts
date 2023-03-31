@@ -6,6 +6,7 @@ import { ProduitService } from 'src/app/services/produit.service';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProduitAddEditComponent } from '../produit-add-edit/produit-add-edit.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-produit-carte',
@@ -16,6 +17,7 @@ export class ProduitCarteComponent implements OnInit {
   @Input() produit!: Produit;
   constructor(private router: Router, protected loginService:LoginService,private produitService:ProduitService,
     protected userService: UserService,
+    private snackBar: MatSnackBar,
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -37,7 +39,20 @@ export class ProduitCarteComponent implements OnInit {
       });
     }
   onDeleteBtnClick(product: Produit) {
-    this.produitService.deleteProductById(this.produit.id);
+    this.produitService.deleteProductById(this.produit.id).subscribe(
+      (res: any) => {
+        this.snackBar.open('Produit supprimé', 'X', {
+          duration: 3000,
+          panelClass: 'success-snackbar'
+        });
+      },
+      (err: any) => {
+        this.snackBar.open('Error deleting product', 'X', {
+          duration: 3000,
+          panelClass: 'error-snackbar'
+        });
+      }
+    );
   }
 
 

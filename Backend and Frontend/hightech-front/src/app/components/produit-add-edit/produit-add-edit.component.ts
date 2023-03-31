@@ -5,6 +5,8 @@ import { Produit } from 'src/app/models/Produit';
 import { ProduitService } from 'src/app/services/produit.service';
 import { Location } from '@angular/common';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -22,7 +24,11 @@ export class ProduitAddEditComponent implements OnInit {
   ( @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router,private produitService:ProduitService,
      private  activatedRoute :ActivatedRoute,
-      private location: Location) { }
+      private location: Location,
+      private snackBar: MatSnackBar,
+      private dialogRef: MatDialogRef<ProduitAddEditComponent>
+
+      ) { }
   
   ngOnInit(): void {
     
@@ -87,12 +93,42 @@ export class ProduitAddEditComponent implements OnInit {
       if(this.optionalProduct !== undefined){
         const updatedProduit= this.produitform.value as Produit;
         updatedProduit.id=this.optionalProduct.id;
-        this.produitService.updateProduit( updatedProduit);
-       // this.location.back()
+        this.produitService.updateProduit( updatedProduit).subscribe(
+          (res: any) => {
+            this.snackBar.open('le produit est mis a jour', 'X', {
+              duration: 3000,
+              panelClass: 'success-snackbar'
+            });
+            this.dialogRef.close();
+          },
+          (err: any) => {
+            this.snackBar.open('Error updating product', 'X', {
+              duration: 3000,
+              panelClass: 'error-snackbar'
+            });
+          }
+        );
 
       }
-      else{this.produitService.addProduit(libelle, description, marque, prix, categorie, photo);
-       console.log("hery from component")
+      else{
+        
+        this.produitService.addProduit(libelle, description, marque, prix, categorie, photo).subscribe(
+    (res: any) => {
+      this.snackBar.open('Product added successfully', 'X', {
+        duration: 3000,
+        panelClass: 'success-snackbar'
+      });
+      this.dialogRef.close();
+    },
+    (err: any) => {
+      this.snackBar.open('Error adding product', 'X', {
+        duration: 3000,
+        panelClass: 'error-snackbar'
+      });
+    }
+  );
+
+        console.log("hery from component")
         //this.location.back();
 
       

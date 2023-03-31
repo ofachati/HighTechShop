@@ -6,7 +6,7 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProduitPageComponent } from './components/produit-page/produit-page.component';
 import { Produit } from './models/Produit';
-import { PanierListeComponent } from './components/panier-liste/panier-liste.component';
+import { PanierComponent } from './components/panier/panier.component';
 import { ProduitListeComponent } from './components/produit-liste/produit-liste.component';
 import { UrlMatcher } from '@angular/router';
 import { ProduitAddEditComponent } from './components/produit-add-edit/produit-add-edit.component';
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'produit/:id', component: ProduitPageComponent },
-  { path: 'panier', component: PanierListeComponent },
+  { path: 'panier', component: PanierComponent },
   { path: 'produits/:categorie', component: ProduitListeComponent },
   { path: 'acceuil', component: AccueilComponent },
   { path: 'ajouter-produit', component: ProduitAddEditComponent , canActivate: [AdminAuthGuard] },

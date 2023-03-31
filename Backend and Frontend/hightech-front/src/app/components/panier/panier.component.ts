@@ -8,11 +8,11 @@ import { CommandeService } from 'src/app/services/commande.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-panier-liste',
-  templateUrl: './panier-liste.component.html',
-  styleUrls: ['./panier-liste.component.css']
+  selector: 'app-panier',
+  templateUrl: './panier.component.html',
+  styleUrls: ['./panier.component.css']
 })
-export class PanierListeComponent implements OnInit, OnDestroy {
+export class PanierComponent implements OnInit, OnDestroy {
   panierProducts!: Panier[];
   private subscription!: Subscription;
   shippingForm!: FormGroup;

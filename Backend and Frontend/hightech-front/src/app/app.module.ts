@@ -39,7 +39,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PanierCarteComponent } from './components/panier-carte/panier-carte.component';
-import { PanierListeComponent } from './components/panier-liste/panier-liste.component';
+import { PanierComponent } from './components/panier/panier.component';
 import { ProduitAddEditComponent } from './components/produit-add-edit/produit-add-edit.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
@@ -59,7 +59,7 @@ import {MatChipsModule} from '@angular/material/chips';
     FooterComponent,
     AccueilComponent,
     PanierCarteComponent,
-    PanierListeComponent,
+    PanierComponent,
     ProduitAddEditComponent,
     
   ],

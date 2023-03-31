@@ -1,11 +1,11 @@
-<mat-toolbar  style=" background-color: rgb(91, 177, 171);">
+<mat-toolbar  style=" background-color: #8ae9b3; background-image: linear-gradient(315deg, #8ae9b3 0%, #c8d6e5 74%);">
 
     <img src="assets/img/HighTechLogo.png" alt="" style="height: 80%;"  routerLink="/accueil" matTooltip="Omar & Mohamed Project">
 
     <span class="example-spacer"></span>
 
 <span  *ngFor="let category of globalCategories" > 
-   <button mat-button [matMenuTriggerFor]="menu">
+   <button mat-button [matMenuTriggerFor]="menu" style="margin-right: 90px">
     <mat-icon>{{ category.icon }}</mat-icon>{{ category.name }}
   </button>
 

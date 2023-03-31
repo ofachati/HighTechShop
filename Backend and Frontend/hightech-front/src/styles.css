@@ -9,3 +9,10 @@ button:focus, button:active:focus, button.active:focus {
     }
 
    
+    .success-snackbar {
+        background-color: #4caf50 !important;
+      }
+      
+      .error-snackbar {
+        background-color: #f44336 !important;
+      }
