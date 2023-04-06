@@ -1,5 +1,4 @@
 package dao;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Date;
 
-import model.Article;
 import model.Commande;
 
 public enum CommandeDao {
@@ -52,12 +50,6 @@ public enum CommandeDao {
     	commande.setId(maxId+1);
     	contentProvider.put(maxId + 1,commande);
         return commande; 
-    	
-    	//int id = getNextId();
-        //commande.setId(id);
-        //contentProvider.put(id, commande);
-        //return commande;
-        
        
     }
     

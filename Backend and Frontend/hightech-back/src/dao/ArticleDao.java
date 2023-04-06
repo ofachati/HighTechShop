@@ -7,6 +7,7 @@ import java.util.Map;
 
 import model.Article;
 
+
 public enum ArticleDao {
     instance;
 
@@ -136,83 +137,83 @@ public enum ArticleDao {
         contentProvider.put(CoolerMasterCPUCooler.getId(), CoolerMasterCPUCooler);
 
 	 // 31. Create an iPhone article
-  Article iPhone = new Article(31, "iPhone XS", "A high-end Smart phone from Apple", "Apple", 1000.0 , "Smart phone", "https://images.frandroid.com/wp-content/uploads/2021/09/apple-iphone-13-pro-frandroid-2021.png");
+  Article iPhone = new Article(31, "iPhone XS", "A high-end Smart phone from Apple", "Apple", 1000.0 , "Smart Phone", "https://images.frandroid.com/wp-content/uploads/2021/09/apple-iphone-13-pro-frandroid-2021.png");
   contentProvider.put(iPhone.getId(), iPhone);
   
   // 32. Create a Samsung Galaxy article
-  Article SamsungGalaxy = new Article(32, "Samsung Galaxy S21", "A high-end Smart phone from Samsung", "Samsung", 800.0 , "Smart phone", "https://images.frandroid.com/wp-content/uploads/2020/12/samsung-galaxy-s21-frandroid-2021-leak.png");
+  Article SamsungGalaxy = new Article(32, "Samsung Galaxy S21", "A high-end Smart phone from Samsung", "Samsung", 800.0 , "Smart Phone", "https://images.frandroid.com/wp-content/uploads/2020/12/samsung-galaxy-s21-frandroid-2021-leak.png");
   contentProvider.put(SamsungGalaxy.getId(), SamsungGalaxy);
   
   // 33. Create a Google Pixel article
-  Article GooglePixel = new Article(33, "Google Pixel 6", "A high-end Smart phone from Google", "Google", 700.0 , "Smart phone", "https://lh3.googleusercontent.com/rOk899xWpz7gucQADZrVmGeziszDavjTPzTPb87V1fjYT-xstKc9P-gUs1FEd7tvmYrSE4rtyq8LEavAElBCHSMhW8h5Teldv6Wg=rw-e365-w1182");
+  Article GooglePixel = new Article(33, "Google Pixel 6", "A high-end Smart phone from Google", "Google", 700.0 , "Smart Phone", "https://lh3.googleusercontent.com/rOk899xWpz7gucQADZrVmGeziszDavjTPzTPb87V1fjYT-xstKc9P-gUs1FEd7tvmYrSE4rtyq8LEavAElBCHSMhW8h5Teldv6Wg=rw-e365-w1182");
   contentProvider.put(GooglePixel.getId(), GooglePixel);
   
   // 34. Create a Xiaomi Mi article
-  Article XiaomiMi = new Article(34, "Xiaomi Mi 11", "A high-end Smart phone from Xiaomi", "Xiaomi", 600.0 , "Smart phone", "http://i01.appmifile.com/webfile/globalimg/wangjy/J1J2/J1-B-800!800x800!85.png");
+  Article XiaomiMi = new Article(34, "Xiaomi Mi 11", "A high-end Smart phone from Xiaomi", "Xiaomi", 600.0 , "Smart Phone", "http://i01.appmifile.com/webfile/globalimg/wangjy/J1J2/J1-B-800!800x800!85.png");
   contentProvider.put(XiaomiMi.getId(), XiaomiMi);
   
   // 35. Create a Huawei P40 article
-  Article HuaweiP40 = new Article(35, "Huawei P40", "A high-end Smart phone from Huawei", "Huawei", 500.0 , "Smart phone", "https://images.frandroid.com/wp-content/uploads/2020/03/huawei-p40-frandroid-2020.png");
+  Article HuaweiP40 = new Article(35, "Huawei P40", "A high-end Smart phone from Huawei", "Huawei", 500.0 , "Smart Phone", "https://images.frandroid.com/wp-content/uploads/2020/03/huawei-p40-frandroid-2020.png");
   contentProvider.put(HuaweiP40.getId(), HuaweiP40);
   
   // 36. Create a Oneplus 9 Pro article
-  Article Oneplus9Pro = new Article(36, "Oneplus 9 Pro", "A high-end Smart phone from Oneplus", "Oneplus", 800.0 , "Smart phone", "https://oasis.opstatics.com/content/dam/oasis/page/2021/9-series/spec-image/9-pro/Morning%20mist-gallery.png");
+  Article Oneplus9Pro = new Article(36, "Oneplus 9 Pro", "A high-end Smart phone from Oneplus", "Oneplus", 800.0 , "Smart Phone", "https://oasis.opstatics.com/content/dam/oasis/page/2021/9-series/spec-image/9-pro/Morning%20mist-gallery.png");
   contentProvider.put(Oneplus9Pro.getId(), Oneplus9Pro);
   
   // 37. Create a Oppo Find X3 article
-  Article OppoFindX3 = new Article(37, "Oppo Find X3", "A high-end Smart phone from Oppo", "Oppo", 700.0 , "Smart phone", "https://images.frandroid.com/wp-content/uploads/2021/03/oppo-find-x3-pro.png");
+  Article OppoFindX3 = new Article(37, "Oppo Find X3", "A high-end Smart phone from Oppo", "Oppo", 700.0 , "Smart Phone", "https://images.frandroid.com/wp-content/uploads/2021/03/oppo-find-x3-pro.png");
   contentProvider.put(OppoFindX3.getId(), OppoFindX3);
   
   // 38. Create a Vivo X60 Pro article
-  Article VivoX60Pro = new Article(38, "Vivo X60 Pro", "A high-end Smart phone from Vivo", "Vivo", 600.0 , "Smart phone", "https://images.frandroid.com/wp-content/uploads/2021/03/vivo-x60-pro-frandroid-2021.png");
+  Article VivoX60Pro = new Article(38, "Vivo X60 Pro", "A high-end Smart phone from Vivo", "Vivo", 600.0 , "Smart Phone", "https://images.frandroid.com/wp-content/uploads/2021/03/vivo-x60-pro-frandroid-2021.png");
   contentProvider.put(VivoX60Pro.getId(), VivoX60Pro);
   
     // 39. Create a Realme X50 Pro article
-  Article RealmeX50Pro = new Article(39, "Realme X50 Pro", "A high-end Smart phone from Realme", "Realme", 500.0 , "Smart phone", "https://images.frandroid.com/wp-content/uploads/2020/02/realme-x50-pro-5g-frandroid-2020-1.png");
+  Article RealmeX50Pro = new Article(39, "Realme X50 Pro", "A high-end Smart phone from Realme", "Realme", 500.0 , "Smart Phone", "https://images.frandroid.com/wp-content/uploads/2020/02/realme-x50-pro-5g-frandroid-2020-1.png");
   contentProvider.put(RealmeX50Pro.getId(), RealmeX50Pro);
   
   // 40. Create a Nokia 9 PureView article
-  Article Nokia9PureView = new Article(40, "Nokia 9 PureView", "A high-end Smart phone from Nokia", "Nokia", 600.0 , "Smart phone", "https://images.frandroid.com/wp-content/uploads/2019/04/nokia-9-pureview-2019-frandroid.png");
+  Article Nokia9PureView = new Article(40, "Nokia 9 PureView", "A high-end Smart phone from Nokia", "Nokia", 600.0 , "Smart Phone", "https://images.frandroid.com/wp-content/uploads/2019/04/nokia-9-pureview-2019-frandroid.png");
   contentProvider.put(Nokia9PureView.getId(), Nokia9PureView);
   
   // 41. Create a Panasonic Cordless Phone article
-  Article PanasonicPhone1 = new Article(41, "Panasonic Cordless Phone", "A cordless landline phone from Panasonic", "Panasonic", 50.0 , "Tel Fixe", "https://www.panasonic.com/content/dam/pim/mi/en/KX/KX-TGC/KX-TGC213UE/KX-TGC213UE-Product_ImageGlobal-1_mi_en.png");
+  Article PanasonicPhone1 = new Article(41, "Panasonic Cordless Phone", "A cordless landline phone from Panasonic", "Panasonic", 50.0 , "Tel fixe", "https://www.panasonic.com/content/dam/pim/mi/en/KX/KX-TGC/KX-TGC213UE/KX-TGC213UE-Product_ImageGlobal-1_mi_en.png");
   contentProvider.put(PanasonicPhone1.getId(), PanasonicPhone1);
   
   // 42. Create a GE Cordless Phone article
-  Article GEPHone2 = new Article(42, "GE Cordless Phone", "A cordless landline phone from GE", "GE", 40.0 , "Tel Fixe", "https://starface.com/app/uploads/2021/07/STARFACE_Yealink_Telefone.png");
+  Article GEPHone2 = new Article(42, "GE Cordless Phone", "A cordless landline phone from GE", "GE", 40.0 , "Tel fixe", "https://starface.com/app/uploads/2021/07/STARFACE_Yealink_Telefone.png");
   contentProvider.put(GEPHone2.getId(), GEPHone2);
   
   // 43. Create a VTech Cordless Phone article
-  Article VTechPhone3 = new Article(43, "VTech Cordless Phone", "A cordless landline phone from VTech", "VTech", 35.0 , "Tel Fixe", "https://cdn-web.vtp-media.com/products/DS/DS6421-X/RGHT_6421-3_LG-min.png");
+  Article VTechPhone3 = new Article(43, "VTech Cordless Phone", "A cordless landline phone from VTech", "VTech", 35.0 , "Tel fixe", "https://cdn-web.vtp-media.com/products/DS/DS6421-X/RGHT_6421-3_LG-min.png");
   contentProvider.put(VTechPhone3.getId(), VTechPhone3);
   
   // 44. Create a AT&T Cordless Phone article
-  Article ATTCordlessPhone4 = new Article(44, "AT&T Cordless Phone", "A cordless landline phone from AT&T", "AT&T", 45.0 , "Tel Fixe", "https://cdn-media-att.vtp-media.com/products/CRL/CRL32XX2/st_32102_bl_hd-min.png");
+  Article ATTCordlessPhone4 = new Article(44, "AT&T Cordless Phone", "A cordless landline phone from AT&T", "AT&T", 45.0 , "Tel fixe", "https://cdn-media-att.vtp-media.com/products/CRL/CRL32XX2/st_32102_bl_hd-min.png");
   contentProvider.put(ATTCordlessPhone4.getId(), ATTCordlessPhone4);
   
   // 45. Create a Motorola Cordless Phone article
-  Article MotorolaPhone5 = new Article(45, "Motorola Cordless Phone", "A cordless landline phone from Motorola", "Motorola", 55.0 , "Tel Fixe", "https://www.onedirect.fr/media/wysiwyg/images/motorola/Wireless/Motorola-O201/motorola_o201_color_naranja_2.png");
+  Article MotorolaPhone5 = new Article(45, "Motorola Cordless Phone", "A cordless landline phone from Motorola", "Motorola", 55.0 , "Tel fixe", "https://www.onedirect.fr/media/wysiwyg/images/motorola/Wireless/Motorola-O201/motorola_o201_color_naranja_2.png");
   contentProvider.put(MotorolaPhone5.getId(), MotorolaPhone5);
   
   // 46. Create a Uniden Cordless Phone article
-  Article UnidenPhone6 = new Article(46, "Uniden Cordless Phone", "A cordless landline phone from Uniden", "Uniden", 60.0 , "Tel Fixe", "https://uniden.com.au/wp-content/uploads/img_dect1735-angled_2000x2000.png");
+  Article UnidenPhone6 = new Article(46, "Uniden Cordless Phone", "A cordless landline phone from Uniden", "Uniden", 60.0 , "Tel fixe", "https://uniden.com.au/wp-content/uploads/img_dect1735-angled_2000x2000.png");
   contentProvider.put(UnidenPhone6.getId(), UnidenPhone6);
   
   // 47. Create a JBL Cordless Phone article
-  Article JBLPhone7 = new Article(47, "JBL Cordless Phone", "A cordless landline phone from JBL", "JBL", 75.0 , "Tel Fixe", "https://motorolafr.vtexassets.com/arquivos/ids/158362-800-auto?width=800&height=auto&aspect=true");
+  Article JBLPhone7 = new Article(47, "JBL Cordless Phone", "A cordless landline phone from JBL", "JBL", 75.0 , "Tel fixe", "https://motorolafr.vtexassets.com/arquivos/ids/158362-800-auto?width=800&height=auto&aspect=true");
   contentProvider.put(JBLPhone7.getId(), JBLPhone7);
   
   // 48. Create a Nokia Cordless Phone article
-  Article NokiaPhone11 = new Article(48, "Nokia Cordless Phone", "A cordless landline phone from Nokia", "Nokia", 70.0 , "Tel Fixe", "https://images.ctfassets.net/wcfotm6rrl7u/157PwKtfB7G1bcJwUbhDcs/784eb93b27a6cadac05e99613aea8304/Android11-DTC-Voice_control-desktop.png");
+  Article NokiaPhone11 = new Article(48, "Nokia Cordless Phone", "A cordless landline phone from Nokia", "Nokia", 70.0 , "Tel fixe", "https://images.ctfassets.net/wcfotm6rrl7u/157PwKtfB7G1bcJwUbhDcs/784eb93b27a6cadac05e99613aea8304/Android11-DTC-Voice_control-desktop.png");
   contentProvider.put(NokiaPhone11.getId(), NokiaPhone11);
 
   // 49. Create a LG Cordless Phone article
-  Article LGPhone9 = new Article(49, "LG Cordless Phone", "A cordless landline phone from LG", "LG", 80.0 , "Tel Fixe", "https://www.echosdunet.net/sites/echosdunet.net/files/images-v1/bibliotheque/LG/2012/LG-L9.png");
+  Article LGPhone9 = new Article(49, "LG Cordless Phone", "A cordless landline phone from LG", "LG", 80.0 , "Tel fixe", "https://www.echosdunet.net/sites/echosdunet.net/files/images-v1/bibliotheque/LG/2012/LG-L9.png");
   contentProvider.put(LGPhone9.getId(), LGPhone9);
   
   // 50. Create a Philips Cordless Phone article
-  Article PhilipsPhone10 = new Article(50, "Philips Cordless Phone", "A cordless landline phone from Philips", "Philips", 90.0 , "Tel Fixe", "http://cdn.shopify.com/s/files/1/0523/8272/8387/products/telephone-sans-fil-pdx-1100-noir-mono_08b10b1b-39b0-4c4a-aaa8-47ca67389704.png?v=1643551579");
+  Article PhilipsPhone10 = new Article(50, "Philips Cordless Phone", "A cordless landline phone from Philips", "Philips", 90.0 , "Tel fixe", "http://cdn.shopify.com/s/files/1/0523/8272/8387/products/telephone-sans-fil-pdx-1100-noir-mono_08b10b1b-39b0-4c4a-aaa8-47ca67389704.png?v=1643551579");
   contentProvider.put(PhilipsPhone10.getId(), PhilipsPhone10);
   
   // 51. Create a Phone Case article
@@ -301,7 +302,7 @@ public enum ArticleDao {
   contentProvider.put(KingstonUSB.getId(), KingstonUSB);
   
   // 72. Create a Sandisk USB drive
-  Article SandiskUSB = new Article(72, "Sandisk USB Drive", "A high-speed USB drive from Sandisk", "Sandisk", 25.0 , "Clé USB", "https://www.westerndigital.com/content/dam/store/en-us/assets/products/usb-flash-drives/ultra-luxe-usb-3-1/gallery/ultra-luxe-usb-3-1-angle-down-left.png");
+  Article SandiskUSB = new Article(72, "Sandisk USB Drive", "A high-speed USB drive from Sandisk", "Sandisk", 25.0 , "Clé USB", "https://www.123comparer.fr/photoProd/zoom/3447/sandisk-ultra-flair-usb-3-0-flash-drive-128gb-sdcz73-128g-g46--351141438.png");
   contentProvider.put(SandiskUSB.getId(), SandiskUSB);
   
   // 73. Create a Toshiba USB drive
@@ -329,7 +330,7 @@ public enum ArticleDao {
   contentProvider.put(AdataUSB.getId(), AdataUSB);
   
   // 79. Create a SanDisk Ultra USB drive
-  Article SanDiskUltraUSB = new Article(79, "SanDisk Ultra USB Drive", "A high-speed and high-capacity USB drive from SanDisk", "SanDisk", 35.0 , "Clé USB", "https://www.westerndigital.com/content/dam/store/en-us/assets/products/usb-flash-drives/ultra-dual-drive-luxe-usb-3-1-type-c/gallery/ultra-dual-drive-luxe-usb-3-1-type-c-1.png");
+  Article SanDiskUltraUSB = new Article(79, "SanDisk Ultra USB Drive", "A high-speed and high-capacity USB drive from SanDisk", "SanDisk", 35.0 , "Clé USB", "https://cdn.shopify.com/s/files/1/0264/9414/0465/products/NewProject_9_bd355ae7-e1e8-4bab-8749-51b756558879_2048x2048.png?v=1658296634");
   contentProvider.put(SanDiskUltraUSB.getId(), SanDiskUltraUSB);
   
   // 80. Create a HP USB drive
@@ -341,11 +342,11 @@ public enum ArticleDao {
   contentProvider.put(SamsungSSD.getId(), SamsungSSD);
   
   // 82. Create a SanDisk USB article
-  Article SanDiskUSB = new Article(82, "SanDisk USB Drive", "A high-capacity flash drive from SanDisk", "SanDisk", 20.0 , "Accessoires stockage", "https://www.westerndigital.com/content/dam/store/en-us/assets/products/usb-flash-drives/cruzer-blade-usb-2-0/gallery/cruzer-blade-usb-2-0-angle.png");
+  Article SanDiskUSB = new Article(82, "SanDisk USB Drive", "A high-capacity flash drive from SanDisk", "SanDisk", 20.0 , "Accessoires stockage", "https://www.123comparer.fr/photoProd/zoom/3447/sandisk-ultra-fit-usb-3-1-flash-drive-512gb-sdcz430-512g-g46--351141446.png");
   contentProvider.put(SanDiskUSB.getId(), SanDiskUSB);
   
   // 83. Create a Western Digital HDD article
-  Article WesternDigitalHDD = new Article(83, "Western Digital HDD", "A high-capacity hard disk drive from Western Digital", "Western Digital", 70.0 , "Accessoires stockage", "https://www.westerndigital.com/content/dam/store/en-us/assets/products/portable/wd-elements-portable/gallery/1tb/wd-elements-portable-1-2tb-front.png.wdthumb.1280.1280.webp");
+  Article WesternDigitalHDD = new Article(83, "Western Digital HDD", "A high-capacity hard disk drive from Western Digital", "Western Digital", 70.0 , "Accessoires stockage", "https://www.instinctgaming.gg/14318-large_default/disque-dur-sata-6gbs-6to-intellipower-256mo-wd-red-wd60efax-nas.jpg");
   contentProvider.put(WesternDigitalHDD.getId(), WesternDigitalHDD);
   
   // 84. Create a Seagate External HDD article
@@ -379,14 +380,17 @@ public enum ArticleDao {
 
     }
 
-    public Map<Integer, Article> getModel() {
-        return contentProvider;
-    }
+ 
     
     public List<Article> getArticles() {
         return new ArrayList<>(contentProvider.values());
     }
 
+    public Article getArticleById(int id) {
+        return contentProvider.get(id);
+    }
+    
+    /*
     public Article addArticle(String libelle, String description, String marque, double prix, String categorie, String photo) {
         int maxId = 0;
         for (Article a : contentProvider.values()) {
@@ -397,6 +401,19 @@ public enum ArticleDao {
         Article a= new Article(maxId + 1, libelle,  description,  marque,  prix,  categorie,   photo);
         contentProvider.put(maxId + 1,a);
         return a;
+    }
+    */
+    
+    public Article addArticle(Article article) {
+    	int maxId = 0;
+    	for (Article a : contentProvider.values()) {
+            if (a.getId() > maxId) {
+                maxId = a.getId();
+            }
+        }
+    	article.setId(maxId+1);
+    	contentProvider.put(maxId + 1,article);
+        return article;   
     }
 
     public void updateArticle(Article article) {

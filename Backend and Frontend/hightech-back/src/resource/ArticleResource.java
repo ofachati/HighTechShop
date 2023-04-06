@@ -2,9 +2,10 @@ package resource;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -14,10 +15,9 @@ import javax.ws.rs.core.MediaType;
 
 import dao.ArticleDao;
 import model.Article;
-import javax.ws.rs.WebApplicationException;
+
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
-import javax.ws.rs.core.Response.Status;
+
 
 
 @Path("/articles")
@@ -30,13 +30,18 @@ public class ArticleResource {
 	public List<Article> getArticles() {
 		return articleDao.getArticles();
 	}
+
 	
 	@GET
-	@Path("{id}")
-	@Produces(MediaType.APPLICATION_JSON )
-	public Article getArticle(@PathParam("id") int id) {
-		return articleDao.getModel().get(id);
-	}
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Article getArticle(@PathParam("id") int id) {
+		Article article = ArticleDao.instance.getArticleById(id);
+        if (article == null) {
+            throw new NotFoundException("article not found");
+        }
+        return article;
+    }
 	
 	
 	@GET
@@ -46,8 +51,8 @@ public class ArticleResource {
 		return articleDao.getArticlesByCategory(category);
 	}
 	
-	
-	
+	// Old implementation (it works but i found a better way) 
+	/*
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public Article addArticle(
@@ -66,6 +71,18 @@ public class ArticleResource {
 	    throw new WebApplicationException(builder.build());
 	  }
 	}
+	*/
+	
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addArticle(Article article) {
+		System.out.println("adding article");
+		System.out.println(article);
+		Article addedArticle = ArticleDao.instance.addArticle(article);
+        return Response.status(Response.Status.CREATED).entity(addedArticle).build();
+    }
+	
 	
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)

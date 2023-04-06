@@ -41,7 +41,7 @@ export class ProduitService {
     }
 
 
-    
+    /*
   addProduit(libelle: string, description: string, marque: string, prix: number, categorie: string, photo: string): Observable<any> {
     let params = new HttpParams();
     params = params.append('libelle', libelle);
@@ -56,7 +56,12 @@ export class ProduitService {
         catchError(this.handleError<any>('add product'))
       );
   }
+  */
   
+  addProduit(produit: Produit){
+    return this.http.post<Produit>(this.articlesUrl, produit);
+  }
+
   
 
   updateProduit (article: Produit) {

@@ -30,8 +30,8 @@ public enum CategorieDao {
 
 	    	// Téléphonies category and subcategories
 	    	Categorie telephonies = new Categorie(5, "Téléphonies", "stay_current_portrait", Arrays.asList(6, 7, 8));
-	    	Categorie smartPhone = new Categorie(6, "Smart phone", "smartphone", Collections.emptyList());
-	    	Categorie telFixe = new Categorie(7, "Tel Fixe", "phone", Collections.emptyList());
+	    	Categorie smartPhone = new Categorie(6, "Smart Phone", "smartphone", Collections.emptyList());
+	    	Categorie telFixe = new Categorie(7, "Tel fixe", "phone", Collections.emptyList());
 	    	Categorie accessoiresTel = new Categorie(8, "Accessoires téléphone", "watch", Collections.emptyList());
 
 	    	contentProvider.put(5, telephonies);
@@ -68,6 +68,13 @@ public enum CategorieDao {
 	                .getSubCategories()
 	                .stream()
 	                .map(contentProvider::get)
+	                .collect(Collectors.toList());
+	    }
+	    
+	    
+	    public List<Categorie> getRootCategories() {
+	        return contentProvider.values().stream()
+	                .filter(categorie -> !categorie.getSubCategories().isEmpty())
 	                .collect(Collectors.toList());
 	    }
 

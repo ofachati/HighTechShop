@@ -43,4 +43,13 @@ public class CategorieResource {
         }
         return Response.ok(subcategories).build();
     }
+    
+    
+    
+    @GET
+    @Path("/root")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Categorie> getRootCategories() {
+        return CategorieDao.instance.getRootCategories();
+    }
 }

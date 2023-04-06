@@ -112,7 +112,17 @@ export class ProduitAddEditComponent implements OnInit {
       }
       else{
         
-        this.produitService.addProduit(libelle, description, marque, prix, categorie, photo).subscribe(
+
+        const newArticle ={} as Produit;
+    //this.commande.user= this.userService.currentUser.id;
+    newArticle.libelle= libelle;
+    newArticle.description= description;
+    newArticle.marque= marque;
+    newArticle.prix= prix;
+    newArticle.categorie= categorie;
+    newArticle.photo=photo;
+
+        this.produitService.addProduit(newArticle).subscribe(
     (res: any) => {
       this.snackBar.open('Product added successfully', 'X', {
         duration: 3000,
